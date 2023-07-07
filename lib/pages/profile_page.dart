@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class LibraryPage extends StatefulWidget {
+class ProfilePage extends StatefulWidget {
   @override
-  _LibraryPage createState() => _LibraryPage();
+  _ProfilePage createState() => _ProfilePage();
 }
 
-class _LibraryPage extends State<LibraryPage>{
+class _ProfilePage extends State<ProfilePage>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
