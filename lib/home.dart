@@ -3,6 +3,7 @@ import 'package:kutuphane_masa_takibi/pages/cafeteria_page.dart';
 import 'package:kutuphane_masa_takibi/pages/courses_page.dart';
 import 'package:kutuphane_masa_takibi/pages/library_page.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
+import 'package:kutuphane_masa_takibi/pages/signin.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -18,7 +19,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color(0xFFCE0D44),
         flexibleSpace: SafeArea(
           child: Center(
             child: Padding(
@@ -28,29 +28,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white
-                ),
+                    color: Colors.white),
               ),
             ),
           ),
         ),
         leading: IconButton(
-          onPressed: () {
-
-          },
+          onPressed: () {},
           icon: Icon(Icons.menu),
         ),
         actions: [
           IconButton(
+            padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
             onPressed: () {
-              if(!isLogin){
+              if (!isLogin) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => SignInPage(),
                   ),
                 );
-              } else if (isLogin){
+              } else if (isLogin) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -59,93 +57,85 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               }
             },
-            icon: Icon(Icons.person_rounded),
+            icon: Icon(Icons.person),
           ),
         ],
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center, // Dikeyde ortala
           children: [
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: ClipOval(
-                  child: Image.asset(
-                    'assets/photo_2023-07-07_00-07-07.jpg',
-                    width: imageSize,
-                    height: imageSize,
-                    fit: BoxFit.cover,
+            Expanded(
+              // Tüm boş alanı kapla
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: ClipOval(
+                      child: Image.asset(
+                        'assets/logo.jpg',
+                        width: imageSize,
+                        height: imageSize,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            ),
-            SizedBox(height: 12.0),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CoursesPage(),
+                  SizedBox(height: 12.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CustomCard(
+                        image: 'assets/kurslar_cartgorseli.jpeg',
+                        text: 'Kurslar',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CoursesPage(),
+                            ),
+                          );
+                        },
+                      ),
+                      CustomCard(
+                        image: 'assets/kafe_cartgorseli.jpeg',
+                        text: 'Kafeterya Menüsü',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => CafeteriaPage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ],
                   ),
-                );
-              },
-              child: Text(
-                "Kurslar",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              style: ElevatedButton.styleFrom(
-                shape: StadiumBorder(),
-                fixedSize: Size(200, 40),
-              ),
-            ),
-            SizedBox(height: 12.0),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => CafeteriaPage(),
+                  SizedBox(height: 12.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      CustomCard(
+                        image: 'assets/kutuphane_cartgorseli.jpeg',
+                        text: 'Kütüphane',
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LibraryPage(),
+                            ),
+                          );
+                        },
+                      ),
+                      CustomCard(
+                        image: 'assets/kutuphane3_cartgorseli.jpeg',
+                        text: '??',
+                        onPressed: () {  },
+                      ),
+                    ],
                   ),
-                );
-              },
-              child: Text(
-                "Kafeterya Menüsü",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 16),
+                ],
               ),
-              style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(), fixedSize: Size(200, 40)),
-            ),
-            SizedBox(height: 12.0),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => LibraryPage(),
-                  ),
-                );
-              },
-              child: Text(
-                "Kütüphane",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(), fixedSize: Size(200, 40)),
-            ),
-            SizedBox(height: 12.0),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                "??",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: 16),
-              ),
-              style: ElevatedButton.styleFrom(
-                  shape: StadiumBorder(), fixedSize: Size(200, 40)),
             ),
           ],
         ),
@@ -154,4 +144,64 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
+class CustomCard extends StatelessWidget {
+  final String image;
+  final String text;
+  final VoidCallback onPressed;
 
+  const CustomCard({
+    required this.image,
+    required this.text,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.4,
+      height: MediaQuery.of(context).size.width * 0.4,
+      child: InkWell(
+        onTap: onPressed,
+        child: Stack(
+          children: [
+            Card(
+              elevation: 4,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12.0),
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12.0),
+              child: Image.asset(
+                image,
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned(
+              bottom: 12.0,
+              left: 12.0,
+              right: 12.0,
+              child: Container(
+                padding: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  color: Color(0xD5CE0D44).withOpacity(0.5),
+                  borderRadius: BorderRadius.circular(12.0),
+                ),
+                child: Text(
+                  text,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

@@ -1,32 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/home.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
+import 'package:kutuphane_masa_takibi/pages/login.dart';
 
-TextEditingController _userNameControllerL = TextEditingController();
-TextEditingController _passwordControllerL = TextEditingController();
+TextEditingController _userNameController = TextEditingController();
+TextEditingController _passwordController = TextEditingController();
+TextEditingController _tcnoController = TextEditingController();
+TextEditingController _adSoyadController = TextEditingController();
+TextEditingController _emailController = TextEditingController();
 
-bool _isPasswordVisibleL = false;
-bool _isLogin = false;
-bool isLogin = _isLogin;
+bool _isPasswordVisible = false;
 
-class LogInPage extends StatefulWidget {
+class SignInPage extends StatefulWidget {
   @override
-  State<LogInPage> createState() => _LogInPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _LogInPageState extends State<LogInPage> {
+class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
 
   final _usernameFocusNode = FocusNode();
   final _passwordFocusNode = FocusNode();
+  final _tcnoFocusNode = FocusNode();
+  final _adSoyadFocusNode = FocusNode();
+  final _emailFocusNode = FocusNode();
 
   @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
       onTap: () {
+        // Klavye odaklıyken başka bir yere tıklandığında klavyeyi kapat
         _usernameFocusNode.unfocus();
         _passwordFocusNode.unfocus();
+        _tcnoFocusNode.unfocus();
+        _adSoyadFocusNode.unfocus();
+        _emailFocusNode.unfocus();
       },
       child: Scaffold(
         appBar: AppBar(
@@ -47,8 +55,11 @@ class _LogInPageState extends State<LogInPage> {
           ),
           leading: IconButton(
             onPressed: () {
-              _userNameControllerL.text = '';
-              _passwordControllerL.text = '';
+              _userNameController.text = '';
+              _passwordController.text = '';
+              _tcnoController.text = '';
+              _adSoyadController.text = '';
+              _emailController.text = '';
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -82,21 +93,42 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                     SizedBox(height: 35.0),
                     buildTextField(
-                      controller: _userNameControllerL,
+                      controller: _tcnoController,
+                      labelText: 'TC No',
+                      prefixIcon: Icons.numbers,
+                      maxLength: 11,
+                      keyboardType: TextInputType.number,
+                    ),
+                    SizedBox(height: 20.0),
+                    buildTextField(
+                      controller: _adSoyadController,
+                      labelText: 'Ad Soyad',
+                      prefixIcon: Icons.confirmation_number_outlined,
+                    ),
+                    SizedBox(height: 20.0),
+                    buildTextField(
+                      controller: _userNameController,
                       labelText: 'Kullanıcı Adı',
                       prefixIcon: Icons.person_outline,
                       maxLength: 20,
                     ),
                     SizedBox(height: 20.0),
-                    buildPasswordFieldL(
-                      controller: _passwordControllerL,
+                    buildTextField(
+                      controller: _emailController,
+                      labelText: 'E-mail',
+                      prefixIcon: Icons.email_outlined,
+                      keyboardType: TextInputType.emailAddress,
+                    ),
+                    SizedBox(height: 20.0),
+                    buildPasswordField(
+                      controller: _passwordController,
                       labelText: 'Şifre',
-                      suffixIcon: _isPasswordVisibleL
+                      suffixIcon: _isPasswordVisible
                           ? Icons.visibility
                           : Icons.visibility_off,
                       onPressedSuffixIcon: () {
                         setState(() {
-                          _isPasswordVisibleL = !_isPasswordVisibleL;
+                          _isPasswordVisible = !_isPasswordVisible;
                         });
                       },
                       maxLength: 8,
@@ -104,21 +136,17 @@ class _LogInPageState extends State<LogInPage> {
                     SizedBox(height: 40.0),
                     ElevatedButton(
                       onPressed: () {
+                        // Üye ol butonuna tıklandığında yapılacak işlemler
                         if (_formKey.currentState!.validate()) {
-                          setState(() {
-                            _isLogin = true;
-                          });
-
-                          _userNameControllerL.text = '';
-                          _passwordControllerL.text = '';
-
+                          // Form geçerliyse gönderilecek işlemler burada yapılır
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MyHomePage(),
+                              builder: (context) => LogInPage(),
                             ),
                           );
                         } else {
+                          // Form geçerli değilse hata mesajı gösterilir
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
@@ -145,8 +173,26 @@ class _LogInPageState extends State<LogInPage> {
                         shape: StadiumBorder(),
                       ),
                       child: Text(
-                        'Giriş Yap',
+                        'Üye Ol',
                         style: TextStyle(fontSize: 18.0),
+                      ),
+                    ),
+                    SizedBox(height: 20.0),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LogInPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Zaten üye misiniz? Giriş Yap',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          decoration: TextDecoration.underline,
+                        ),
                       ),
                     ),
                   ],
@@ -160,7 +206,35 @@ class _LogInPageState extends State<LogInPage> {
   }
 }
 
-Widget buildPasswordFieldL({
+Widget buildTextField({
+  required TextEditingController controller,
+  required String labelText,
+  IconData? prefixIcon,
+  int? maxLength,
+  TextInputType? keyboardType,
+}) {
+  return TextFormField(
+    controller: controller,
+    validator: (value) {
+      if (value == null || value.isEmpty) {
+        return '$labelText giriniz.';
+      }
+      return null;
+    },
+    decoration: InputDecoration(
+      labelText: labelText,
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFFCE0D44)),
+      ),
+      prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+      counterText: '',
+    ),
+    maxLength: maxLength,
+    keyboardType: keyboardType,
+  );
+}
+
+Widget buildPasswordField({
   required TextEditingController controller,
   required String labelText,
   IconData? suffixIcon,
@@ -188,6 +262,6 @@ Widget buildPasswordFieldL({
       counterText: '',
     ),
     maxLength: maxLength,
-    obscureText: !_isPasswordVisibleL,
+    obscureText: !_isPasswordVisible,
   );
 }
