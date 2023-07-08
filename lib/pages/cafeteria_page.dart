@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
+import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
 import 'login.dart';
 
@@ -72,6 +73,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavi(context, 2),
     );
   }
 }

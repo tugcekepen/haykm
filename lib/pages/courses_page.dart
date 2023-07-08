@@ -4,6 +4,8 @@ import 'package:kutuphane_masa_takibi/pages/login.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
+import '../components/bottom_navi.dart';
+
 class CoursesPage extends StatefulWidget {
   @override
   _CoursesPage createState() => _CoursesPage();
@@ -71,6 +73,7 @@ class _CoursesPage extends State<CoursesPage>{
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavi(context, 1),
     );
   }
 

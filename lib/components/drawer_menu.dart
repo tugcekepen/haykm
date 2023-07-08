@@ -54,12 +54,30 @@ class _DrawerMenuState extends State<DrawerMenu> {
             DrawerListItem(
               icon: Icons.favorite_outline,
               listTitle: "Favori Kitaplarım",
-              listFunction: () {  },
+              listFunction: () {
+                if (!isLogin!) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignInPage(),
+                    ),
+                  );
+                }
+              },
             ),
             DrawerListItem(
               icon: Icons.book_outlined,
               listTitle: "Kurslarım",
-              listFunction: () {  },
+              listFunction: () {
+                if (!isLogin!) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignInPage(),
+                    ),
+                  );
+                }
+              },
             ),
             DrawerListTitle(title: "Merkezimiz",),
             DrawerListItem(
@@ -80,6 +98,18 @@ class _DrawerMenuState extends State<DrawerMenu> {
             DrawerListItem(
                 listTitle: "Sık Sorulan Sorular",
                 icon: Icons.question_mark_outlined,
+                listFunction: () {  }
+            ),
+            Padding(
+              padding: const EdgeInsets.only(),
+              child: Divider(
+                color: Theme.of(context).dividerColor,
+                height: 2,
+              ),
+            ),
+            DrawerListItem(
+                listTitle: "Çıkış Yap",
+                icon: Icons.exit_to_app_outlined,
                 listFunction: () {  }
             ),
           ],
@@ -122,6 +152,13 @@ class DrawerListTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Padding(
+          padding: const EdgeInsets.only(),
+          child: Divider(
+            color: Theme.of(context).dividerColor,
+            height: 2,
+          ),
+        ),
         Padding(
             padding: const EdgeInsets.only(left: 25, top: 16, bottom: 16, right: 25),
           child: Text(
