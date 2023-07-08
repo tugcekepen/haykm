@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
+import 'package:kutuphane_masa_takibi/pages/mybooks_page.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
+import '../pages/home_page.dart';
 import 'info_card.dart';
 
 class DrawerMenu extends StatefulWidget {
@@ -17,8 +19,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
     return Drawer(
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-            topRight: Radius.circular(30),
-            bottomRight: Radius.circular(30)),
+            topRight: Radius.circular(30), bottomRight: Radius.circular(30)),
       ),
       child: SafeArea(
         child: Column(
@@ -29,7 +30,9 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 subtitle: "Gençlik Bilim ve Sanat Merkezi",
               ),
             ),
-            DrawerListTitle(title: "Siz",),
+            DrawerListTitle(
+              title: "Siz",
+            ),
             DrawerListItem(
               icon: Icons.person_outline,
               listTitle: "Hesabım",
@@ -62,6 +65,25 @@ class _DrawerMenuState extends State<DrawerMenu> {
                       builder: (context) => SignInPage(),
                     ),
                   );
+                } else if (isLogin!) {}
+              },
+            ),
+            DrawerListItem(
+              icon: Icons.bookmark_border,
+              listTitle: "Kitaplarım",
+              listFunction: () {
+                if (!isLogin!) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignInPage(),
+                    ),
+                  );
+                } else if (isLogin!) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyBooksPage()),
+                  );
                 }
               },
             ),
@@ -76,30 +98,30 @@ class _DrawerMenuState extends State<DrawerMenu> {
                       builder: (context) => SignInPage(),
                     ),
                   );
-                }
+                } else if (isLogin!) {}
               },
             ),
-            DrawerListTitle(title: "Merkezimiz",),
+            DrawerListTitle(
+              title: "Merkezimiz",
+            ),
             DrawerListItem(
               icon: Icons.info_outline,
               listTitle: "Hakkımızda",
-              listFunction: () {  },
+              listFunction: () {},
             ),
             DrawerListItem(
                 listTitle: "İletişim",
                 icon: Icons.mail_outline,
-                listFunction: () {  }
-            ),
+                listFunction: () {}),
             DrawerListItem(
               icon: Icons.credit_card_outlined,
               listTitle: "AtaKart Başvurusu",
-              listFunction: () {  },
+              listFunction: () {},
             ),
             DrawerListItem(
                 listTitle: "Sık Sorulan Sorular",
                 icon: Icons.question_mark_outlined,
-                listFunction: () {  }
-            ),
+                listFunction: () {}),
             Padding(
               padding: const EdgeInsets.only(),
               child: Divider(
@@ -107,11 +129,20 @@ class _DrawerMenuState extends State<DrawerMenu> {
                 height: 2,
               ),
             ),
-            DrawerListItem(
-                listTitle: "Çıkış Yap",
-                icon: Icons.exit_to_app_outlined,
-                listFunction: () {  }
-            ),
+            if (isLogin!)
+              DrawerListItem(
+                  listTitle: "Çıkış Yap",
+                  icon: Icons.exit_to_app_outlined,
+                  listFunction: () {
+                    setState(() {
+                      isLogin = false;
+                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MyHomePage()),
+                    );
+                  }
+              ),
           ],
         ),
       ),
@@ -135,7 +166,10 @@ class DrawerListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(icon, size: 25, color: Colors.grey),
-      title: Text(listTitle, style: TextStyle(fontSize: 15),),
+      title: Text(
+        listTitle,
+        style: TextStyle(fontSize: 15),
+      ),
       onTap: listFunction,
     );
   }
@@ -143,7 +177,8 @@ class DrawerListItem extends StatelessWidget {
 
 class DrawerListTitle extends StatelessWidget {
   const DrawerListTitle({
-    super.key, this.title,
+    super.key,
+    this.title,
   });
 
   final String? title;
@@ -160,11 +195,13 @@ class DrawerListTitle extends StatelessWidget {
           ),
         ),
         Padding(
-            padding: const EdgeInsets.only(left: 25, top: 16, bottom: 16, right: 25),
+          padding:
+              const EdgeInsets.only(left: 25, top: 16, bottom: 16, right: 25),
           child: Text(
             title!.toUpperCase(),
             style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                color: Theme.of(context).primaryColor.withOpacity(0.5), fontWeight: FontWeight.bold),
+                color: Theme.of(context).primaryColor.withOpacity(0.5),
+                fontWeight: FontWeight.bold),
           ),
         ),
         Padding(

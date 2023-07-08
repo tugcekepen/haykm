@@ -9,6 +9,7 @@ import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/components/drawer_menu.dart';
 
 import '../components/bottom_navi.dart';
+import 'news_page.dart';
 
 int page = 0;
 
@@ -118,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   CustomCard(
                     image: 'assets/images/kafe_cartgorseli.jpeg',
-                    text: 'Kafeterya Menüsü',
+                    text: 'Kafeterya\n  Menüsü',
                     onPressed: () {
                       if (!isLogin!) {
                         Navigator.push(
@@ -169,8 +170,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                   ),
                   CustomCard(
-                    image: 'assets/images/kutuphane3_cartgorseli.jpeg',
-                    text: 'Kitaplarım',
+                    image: 'assets/images/news_cartgorseli.jpeg',
+                    text: 'Haberler',
                     onPressed: () {
                       if (!isLogin!) {
                         Navigator.push(
@@ -185,7 +186,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MyBooksPage(),
+                            builder: (context) => NewsPage(),
                           ),
                         );
                       }
@@ -219,6 +220,7 @@ class CustomCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.4,
       height: MediaQuery.of(context).size.width * 0.4,
       child: InkWell(
+        splashColor: Colors.black,
         onTap: onPressed,
         child: Stack(
           children: [
@@ -229,7 +231,7 @@ class CustomCard extends StatelessWidget {
               ),
             ),
             ClipRRect(
-              borderRadius: BorderRadius.circular(12.0),
+              borderRadius: BorderRadius.circular(20.0),
               child: Image.asset(
                 image,
                 width: double.infinity,
@@ -244,15 +246,17 @@ class CustomCard extends StatelessWidget {
               child: Container(
                 padding: EdgeInsets.all(8.0),
                 decoration: BoxDecoration(
-                  color: Color(0xD5CE0D44).withOpacity(0.5),
+                  color: Colors.white.withOpacity(0.65),
                   borderRadius: BorderRadius.circular(12.0),
                 ),
-                child: Text(
-                  text,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                    color: Colors.white,
+                child: Center(
+                  child: Text(
+                    text,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: Colors.black,
+                    ),
                   ),
                 ),
               ),

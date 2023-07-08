@@ -6,6 +6,7 @@ import '../pages/home_page.dart';
 import '../pages/library_page.dart';
 import '../pages/login.dart';
 import '../pages/mybooks_page.dart';
+import '../pages/news_page.dart';
 import '../pages/signin.dart';
 
 Widget BottomNavi(BuildContext context, int currentIndex) {
@@ -66,16 +67,16 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           label: "Kütüphane"),
       BottomNavigationBarItem(
           icon: Icon(
-            Icons.book,
+            Icons.newspaper,
             color: Color(0xFFF56A77),
             size: 20,
           ),
           activeIcon: Icon(
-            Icons.book,
+            Icons.newspaper,
             color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
             size: 30,
           ),
-          label: "Kitaplarım"),
+          label: "Haberler"),
     ],
     onTap: (currentIndex) {
       if (!isLogin!) {
@@ -118,7 +119,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           case 4:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => MyBooksPage()),
+              MaterialPageRoute(builder: (context) => NewsPage()),
             );
             break;
         }
