@@ -4,7 +4,7 @@ import 'package:json_theme/json_theme.dart';
 import 'package:flutter/services.dart'; // For rootBundle
 import 'dart:convert';
 
-import 'package:kutuphane_masa_takibi/home.dart'; // For jsonDecode
+import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

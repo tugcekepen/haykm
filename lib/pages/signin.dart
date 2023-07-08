@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kutuphane_masa_takibi/home.dart';
+import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
 
 TextEditingController _userNameController = TextEditingController();
@@ -84,7 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                       alignment: Alignment.topCenter,
                       child: ClipOval(
                         child: Image.asset(
-                          'assets/anonim_person.jpg',
+                          'assets/images/anonim_person.jpg',
                           width: imageSize,
                           height: imageSize,
                           fit: BoxFit.cover,

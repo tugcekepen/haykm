@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:kutuphane_masa_takibi/components/drawer_menu.dart';
-import 'package:kutuphane_masa_takibi/pages/login.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
+import '../components/drawer_menu.dart';
+import 'login.dart';
 
-class CoursesPage extends StatefulWidget {
+class MyBooksPage extends StatefulWidget {
+  const MyBooksPage({Key? key}) : super(key: key);
+
   @override
-  _CoursesPage createState() => _CoursesPage();
+  State<MyBooksPage> createState() => _MyBooksState();
 }
 
-class _CoursesPage extends State<CoursesPage>{
+class _MyBooksState extends State<MyBooksPage> {
   GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -66,13 +68,11 @@ class _CoursesPage extends State<CoursesPage>{
         children: [
           Expanded(
             child: Center(
-              child: Text("Kurslar"),
+              child: Text("Kitaplarım"),
             ),
           ),
         ],
       ),
     );
   }
-
-
 }

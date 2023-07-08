@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kutuphane_masa_takibi/home.dart';
+import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
 TextEditingController _userNameControllerL = TextEditingController();
 TextEditingController _passwordControllerL = TextEditingController();
 
 bool _isPasswordVisibleL = false;
-bool _isLogin = false;
-bool isLogin = _isLogin;
+bool? _isLogin = false;
+bool? isLogin = _isLogin;
 
 class LogInPage extends StatefulWidget {
   @override
@@ -73,7 +73,7 @@ class _LogInPageState extends State<LogInPage> {
                       alignment: Alignment.topCenter,
                       child: ClipOval(
                         child: Image.asset(
-                          'assets/anonim_person.jpg',
+                          'assets/images/anonim_person.jpg',
                           width: imageSize,
                           height: imageSize,
                           fit: BoxFit.cover,
@@ -107,10 +107,13 @@ class _LogInPageState extends State<LogInPage> {
                         if (_formKey.currentState!.validate()) {
                           setState(() {
                             _isLogin = true;
+                            isLogin = _isLogin;
                           });
 
                           _userNameControllerL.text = '';
                           _passwordControllerL.text = '';
+                          print(_isLogin);
+                          print(isLogin);
 
                           Navigator.push(
                             context,

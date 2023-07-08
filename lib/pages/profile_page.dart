@@ -8,8 +8,17 @@ class ProfilePage extends StatefulWidget {
 class _ProfilePage extends State<ProfilePage>{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    throw UnimplementedError();
+    return Scaffold(
+      body: Column(
+        children: [
+          Expanded(
+            child: Center(
+              child: Text("Profil"),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 
 
