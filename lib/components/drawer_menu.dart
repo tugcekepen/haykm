@@ -22,9 +22,11 @@ class _DrawerMenuState extends State<DrawerMenu> {
             topRight: Radius.circular(30), bottomRight: Radius.circular(30)),
       ),
       child: SafeArea(
-        child: Column(
+        child: ListView(
+          shrinkWrap: true,
           children: [
-            Container(
+            Padding(
+              padding: const EdgeInsets.all(16),
               child: InfoCard(
                 title: "Hasan Ali Yücel Kültür Merkezi",
                 subtitle: "Gençlik Bilim ve Sanat Merkezi",
@@ -141,8 +143,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                       context,
                       MaterialPageRoute(builder: (context) => MyHomePage()),
                     );
-                  }
-              ),
+                  }),
           ],
         ),
       ),
@@ -187,12 +188,9 @@ class DrawerListTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.only(),
-          child: Divider(
-            color: Theme.of(context).dividerColor,
-            height: 2,
-          ),
+        Divider(
+          color: Theme.of(context).dividerColor,
+          height: 2,
         ),
         Padding(
           padding:
@@ -204,12 +202,9 @@ class DrawerListTitle extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.only(),
-          child: Divider(
-            color: Theme.of(context).dividerColor,
-            height: 2,
-          ),
+        Divider(
+          color: Theme.of(context).dividerColor,
+          height: 2,
         ),
       ],
     );

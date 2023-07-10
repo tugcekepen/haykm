@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:kutuphane_masa_takibi/pages/cafeteria_page.dart';
-import 'package:kutuphane_masa_takibi/pages/courses_page.dart';
-import 'package:kutuphane_masa_takibi/pages/library_page.dart';
-import 'package:kutuphane_masa_takibi/pages/login.dart';
-import 'package:kutuphane_masa_takibi/pages/mybooks_page.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
-import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
-import 'package:kutuphane_masa_takibi/components/drawer_menu.dart';
-
-import '../components/bottom_navi.dart';
+import 'cafeteria_page.dart';
+import 'courses_page.dart';
+import 'library_page.dart';
+import 'login.dart';
+import 'signin.dart';
+import 'profile_page.dart';
 import 'news_page.dart';
+import '../components/drawer_menu.dart';
+import '../components/bottom_navi.dart';
 
 int page = 0;
 
@@ -23,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final double imageSize = MediaQuery.of(context).size.width * 0.6;
+    final double imageSize = MediaQuery.of(context).size.width * 0.43;
 
     return Scaffold(
       key: _scaffold,
@@ -74,7 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      body: ListView(children: [
+      body: ListView(
+        shrinkWrap: true,
+          children: [
         Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 12.0),
+              SizedBox(height: 8.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -98,11 +98,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: 'assets/images/kurslar_cartgorseli.jpeg',
                     text: 'Kurslar',
                     onPressed: () {
-                      if (!isLogin!) {
+                      if (!isLogin!) { // DUZENLENECEK
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignInPage(),
+                            builder: (context) => CoursesPage(),
                           ),
                         );
                       } else if (isLogin!) {
@@ -121,11 +121,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: 'assets/images/kafe_cartgorseli.jpeg',
                     text: 'Kafeterya\n  Menüsü',
                     onPressed: () {
-                      if (!isLogin!) {
+                      if (!isLogin!) { // DUZENLENECEK
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignInPage(),
+                            builder: (context) => CafeteriaPage(),
                           ),
                         );
                       } else if (isLogin!) {
@@ -150,11 +150,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     image: 'assets/images/kutuphane_cartgorseli.jpeg',
                     text: 'Kütüphane',
                     onPressed: () {
-                      if (!isLogin!) {
+                      if (!isLogin!) { // DUZENLENECEK
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignInPage(),
+                            builder: (context) => LibraryPage(),
                           ),
                         );
                       } else if (isLogin!) {
@@ -172,12 +172,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   CustomCard(
                     image: 'assets/images/news_cartgorseli.jpeg',
                     text: 'Haberler',
-                    onPressed: () {
+                    onPressed: () { // DUZENLENECEK
                       if (!isLogin!) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SignInPage(),
+                            builder: (context) => NewsPage(),
                           ),
                         );
                       } else if (isLogin!) {
