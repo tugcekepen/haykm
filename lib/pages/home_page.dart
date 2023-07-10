@@ -23,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final double imageSize = MediaQuery.of(context).size.width * 0.6;
+    final double imageSize = MediaQuery.of(context).size.width * 0.55;
 
     return Scaffold(
       key: _scaffold,
