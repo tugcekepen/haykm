@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kutuphane_masa_takibi/components/app_bar.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
 
@@ -37,39 +38,7 @@ class _SignInPageState extends State<SignInPage> {
         _emailFocusNode.unfocus();
       },
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          flexibleSpace: SafeArea(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Hasan Ali Yücel Kültür Merkezi",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor),
-                ),
-              ),
-            ),
-          ),
-          leading: IconButton(
-            onPressed: () {
-              _userNameController.text = '';
-              _passwordController.text = '';
-              _tcnoController.text = '';
-              _adSoyadController.text = '';
-              _emailController.text = '';
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ),
-              );
-            },
-            icon: Icon(Icons.arrow_back_ios_new_outlined),
-          ),
-        ),
+        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icon(Icons.arrow_back_ios_new_outlined), onIconPressed: toDeleteFieldSignIn),
         body: Center(
           child: SingleChildScrollView(
             child: Form(
@@ -91,27 +60,27 @@ class _SignInPageState extends State<SignInPage> {
                           maxLength: 11,
                           keyboardType: TextInputType.number,
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 10.0),
                         buildTextField(
                           controller: _adSoyadController,
                           labelText: 'Ad Soyad',
                           prefixIcon: Icons.confirmation_number_outlined,
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 10.0),
                         buildTextField(
                           controller: _userNameController,
                           labelText: 'Kullanıcı Adı',
                           prefixIcon: Icons.person_outline,
                           maxLength: 20,
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 10.0),
                         buildTextField(
                           controller: _emailController,
                           labelText: 'E-mail',
                           prefixIcon: Icons.email_outlined,
                           keyboardType: TextInputType.emailAddress,
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 10.0),
                         buildPasswordField(
                           controller: _passwordController,
                           labelText: 'Şifre',
@@ -198,6 +167,14 @@ class _SignInPageState extends State<SignInPage> {
         ),
       ),
     );
+  }
+
+  void toDeleteFieldSignIn() {
+    _userNameController.text = '';
+    _passwordController.text = '';
+    _tcnoController.text = '';
+    _adSoyadController.text = '';
+    _emailController.text = '';
   }
 }
 

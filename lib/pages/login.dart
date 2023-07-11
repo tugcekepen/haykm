@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kutuphane_masa_takibi/components/app_bar.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
@@ -21,6 +22,13 @@ class _LogInPageState extends State<LogInPage> {
   final _passwordFocusNode = FocusNode();
 
   @override
+  void dispose() {
+    _usernameFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
@@ -29,36 +37,7 @@ class _LogInPageState extends State<LogInPage> {
         _passwordFocusNode.unfocus();
       },
       child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          flexibleSpace: SafeArea(
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Hasan Ali Yücel Kültür Merkezi",
-                  style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor),
-                ),
-              ),
-            ),
-          ),
-          leading: IconButton(
-            onPressed: () {
-              _userNameControllerL.text = '';
-              _passwordControllerL.text = '';
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyHomePage(),
-                ),
-              );
-            },
-            icon: Icon(Icons.arrow_back_ios_new_outlined),
-          ),
-        ),
+        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icon(Icons.arrow_back_ios_new_outlined), onIconPressed: toDeleteFieldLogIn),
         body: Center(
           child: SingleChildScrollView(
             child: Form(
@@ -82,6 +61,7 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                     SizedBox(height: 35.0),
                     buildTextField(
+                      focusNode: _usernameFocusNode,
                       controller: _userNameControllerL,
                       labelText: 'Kullanıcı Adı',
                       prefixIcon: Icons.person_outline,
@@ -89,6 +69,7 @@ class _LogInPageState extends State<LogInPage> {
                     ),
                     SizedBox(height: 20.0),
                     buildPasswordFieldL(
+                      focusNode: _passwordFocusNode,
                       controller: _passwordControllerL,
                       labelText: 'Şifre',
                       suffixIcon: _isPasswordVisibleL
@@ -110,8 +91,7 @@ class _LogInPageState extends State<LogInPage> {
                             isLogin = _isLogin;
                           });
 
-                          _userNameControllerL.text = '';
-                          _passwordControllerL.text = '';
+                          toDeleteFieldLogIn();
                           print(_isLogin);
                           print(isLogin);
 
@@ -161,6 +141,39 @@ class _LogInPageState extends State<LogInPage> {
       ),
     );
   }
+
+  void toDeleteFieldLogIn() {
+    _userNameControllerL.text = '';
+    _passwordControllerL.text = '';
+  }
+}
+
+Widget buildTextField({
+  required TextEditingController controller,
+  required String labelText,
+  IconData? prefixIcon,
+  int? maxLength,
+  FocusNode? focusNode,
+}) {
+  return TextFormField(
+    controller: controller,
+    focusNode: focusNode,
+    validator: (value) {
+      if (value == null || value.isEmpty) {
+        return '$labelText giriniz.';
+      }
+      return null;
+    },
+    decoration: InputDecoration(
+      labelText: labelText,
+      focusedBorder: OutlineInputBorder(
+        borderSide: BorderSide(color: Color(0xFFCE0D44)),
+      ),
+      prefixIcon: Icon(prefixIcon),
+      counterText: '',
+    ),
+    maxLength: maxLength,
+  );
 }
 
 Widget buildPasswordFieldL({
@@ -169,9 +182,11 @@ Widget buildPasswordFieldL({
   IconData? suffixIcon,
   int? maxLength,
   required VoidCallback onPressedSuffixIcon,
+  FocusNode? focusNode,
 }) {
   return TextFormField(
     controller: controller,
+    focusNode: focusNode,
     validator: (value) {
       if (value == null || value.isEmpty) {
         return '$labelText giriniz.';

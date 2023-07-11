@@ -5,8 +5,7 @@ import '../pages/courses_page.dart';
 import '../pages/home_page.dart';
 import '../pages/library_page.dart';
 import '../pages/login.dart';
-import '../pages/mybooks_page.dart';
-import '../pages/news_page.dart';
+import '../pages/suggestion_complaints.dart';
 import '../pages/signin.dart';
 
 Widget BottomNavi(BuildContext context, int currentIndex) {
@@ -119,7 +118,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           case 4:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NewsPage()),
+              MaterialPageRoute(builder: (context) => SuggestionPage()),
             );
             break;
         }

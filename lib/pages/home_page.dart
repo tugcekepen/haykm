@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import '../components/app_bar.dart';
 import 'cafeteria_page.dart';
 import 'courses_page.dart';
 import 'library_page.dart';
 import 'login.dart';
 import 'signin.dart';
 import 'profile_page.dart';
-import 'news_page.dart';
+import 'suggestion_complaints.dart';
 import '../components/drawer_menu.dart';
 import '../components/bottom_navi.dart';
 
@@ -19,59 +20,20 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
+
+
   @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.43;
 
+    void drawerOpen() {
+      _scaffold?.currentState?.openDrawer();
+    }
+
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: AppBar(
-        centerTitle: true,
-        flexibleSpace: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Hasan Ali Yücel Kültür Merkezi",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor),
-              ),
-            ),
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            _scaffold.currentState?.openDrawer();
-          },
-          icon: Icon(Icons.menu),
-        ),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
-            onPressed: () {
-              if (!isLogin!) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SignInPage(),
-                  ),
-                );
-              } else if (isLogin!) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfilePage(),
-                  ),
-                );
-              }
-            },
-            icon: Icon(Icons.person),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icon(Icons.menu), onIconPressed: drawerOpen),
       body: ListView(
         shrinkWrap: true,
           children: [
@@ -171,13 +133,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   CustomCard(
                     image: 'assets/images/news_cartgorseli.jpeg',
-                    text: 'Haberler',
+                    text: ' Öneri ve\nŞikayetler',
                     onPressed: () { // DUZENLENECEK
                       if (!isLogin!) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => NewsPage(),
+                            builder: (context) => SuggestionPage(),
                           ),
                         );
                       } else if (isLogin!) {
@@ -186,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => NewsPage(),
+                            builder: (context) => SuggestionPage(),
                           ),
                         );
                       }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
+import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
 import '../data/Menu.dart';
@@ -14,59 +15,18 @@ class CafeteriaPage extends StatefulWidget {
 }
 
 class _CafeteriaPage extends State<CafeteriaPage>{
-  @override
   GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+
+  void drawerOpen() {
+    _scaffold?.currentState?.openDrawer();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: AppBar(
-        centerTitle: true,
-        flexibleSpace: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Hasan Ali Yücel Kültür Merkezi",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor),
-              ),
-            ),
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            _scaffold.currentState?.openDrawer();
-          },
-          icon: Icon(Icons.menu),
-        ),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
-            onPressed: () {
-              if (!isLogin!) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SignInPage(),
-                  ),
-                );
-              } else if (isLogin!) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfilePage(),
-                  ),
-                );
-              }
-            },
-            icon: Icon(Icons.person),
-          ),
-        ],
-      ),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi", icon: Icon(Icons.menu), onIconPressed: drawerOpen),
       body: GridView.builder(
         padding: EdgeInsets.all(16.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
