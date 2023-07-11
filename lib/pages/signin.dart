@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/app_bar.dart';
-import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
 
 TextEditingController _userNameController = TextEditingController();
@@ -19,26 +18,18 @@ class SignInPage extends StatefulWidget {
 class _SignInPageState extends State<SignInPage> {
   final _formKey = GlobalKey<FormState>();
 
-  final _usernameFocusNode = FocusNode();
-  final _passwordFocusNode = FocusNode();
-  final _tcnoFocusNode = FocusNode();
-  final _adSoyadFocusNode = FocusNode();
-  final _emailFocusNode = FocusNode();
+  void _handleTap() {
+    // Odaktan çıkma işlemleri burada gerçekleştirilecek
+    FocusScope.of(context).unfocus(); // İmleci kaybetmek için odaktan çıkar
+  }
 
   @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
-      onTap: () {
-        // Klavye odaklıyken başka bir yere tıklandığında klavyeyi kapat
-        _usernameFocusNode.unfocus();
-        _passwordFocusNode.unfocus();
-        _tcnoFocusNode.unfocus();
-        _adSoyadFocusNode.unfocus();
-        _emailFocusNode.unfocus();
-      },
+      onTap: _handleTap,
       child: Scaffold(
-        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icon(Icons.arrow_back_ios_new_outlined), onIconPressed: toDeleteFieldSignIn),
+        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.arrow_back_ios_new_outlined, onIconPressed: toDeleteFieldSignIn),
         body: Center(
           child: SingleChildScrollView(
             child: Form(

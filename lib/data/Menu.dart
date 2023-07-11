@@ -10,8 +10,9 @@ class MenuItem {
   final String name;
   final String price;
   final String? subtitle;
+  final String? image;
 
-  MenuItem(this.name, this.price, {this.subtitle});
+  MenuItem(this.name, this.price, {this.image, this.subtitle});
 }
 
 final List<MenuCategory> categories = [
@@ -21,10 +22,10 @@ final List<MenuCategory> categories = [
     items: [
       MenuItem('Günün Çorbası', '25 TL'),
       MenuItem('Ekspres kahvaltı', '90 TL', subtitle: 'Bal, Reçel, Sarelle, Yeşil-Siyah Zeytin, Beyaz Peynir, Kaşar Peyniri, Yumurta, Domates, Salatalık, Tereyağ'),
-      MenuItem('Menemen', '55 TL', subtitle: 'Domates, Sivri Biber, Yumurta, Tereyağ'),
-      MenuItem('Kuymak', '55 TL', subtitle: 'Mısır Unu, Tel Peynir, Tereyağ'),
-      MenuItem('Sahanda Yumurta', '30 TL', subtitle: 'Yumurta, Tereyağ'),
-      MenuItem('Sucuklu Omlet', '45 TL', subtitle: 'Sucuk, Yumurta, Tereyağ'),
+      MenuItem('Menemen', '55 TL', subtitle: 'Domates, Sivri Biber, Yumurta, Tereyağ', image: 'assets/images/menemen.jpg'),
+      MenuItem('Kuymak', '55 TL', subtitle: 'Mısır Unu, Tel Peynir, Tereyağ', image: 'assets/images/kuymak.jpg'),
+      MenuItem('Sahanda Yumurta', '30 TL', subtitle: 'Yumurta, Tereyağ', image: 'assets/images/sahanda_yumurta.jpg'),
+      MenuItem('Sucuklu Omlet', '45 TL', subtitle: 'Sucuk, Yumurta, Tereyağ', image: 'assets/images/sucuklu_omlet.png'),
       MenuItem('Serpme Kahvaltı', '250 TL', subtitle: 'Beyaz Peynir, Kaşar Peyniri, Tulum Peyniri, Siyah Zeytin, Yeşil Zeytin, Vişne Reçeli, Bal, Tereyağ, Salam, Örgü Peyniri, Sarelle, Patates Cips, Sahanda Yumurta, Patates Kavurması, Kuymak, Sigara Böreği, Çay'),
     ],
   ),
@@ -53,7 +54,7 @@ final List<MenuCategory> categories = [
       MenuItem('Duble Burger', '110 TL', subtitle: 'Hamburger Ekmeği, Hamburger Köftesi, Marul, Kornişon Turşu, Patates Cips'),
     ],
   ),
-  MenuCategory(category: 'Wraps Çeşitleri', image: 'assets/images/wrap.jpg', items: [
+  MenuCategory(category: 'Wrap Çeşitleri', image: 'assets/images/wrap.jpg', items: [
     MenuItem('Sezar Tavuk Wrap', '90 TL', subtitle: 'Tavuk Göğüs, Sivri Biber, Soğan, Mantar, Kaşar Peyniri, Domates, Salatalık, Cips, Maydanoz'),
     MenuItem('Etli Wrap', '140 TL', subtitle: 'Dana Antrikot, Sivri Biber, Soğan, Mantar, Tereyağ, Kaşar, Cips, Maydanoz, Havuç,Domates, Salatalık'),
     MenuItem('Vendura Wrap (Sebzeli)','80 TL', subtitle: 'Sivri Biber, Soğan, Mantar, Tereyağ, Kaşar Peyniri, Tortilla Ek. Cips, Kızartma Yağı, Maydanoz, Salatalık, Domates')

@@ -14,7 +14,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }) :  super(key: key);
 
   final String title;
-  final Icon icon;
+  final IconData icon;
   final VoidCallback? onIconPressed;
 
   @override
@@ -40,22 +40,24 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          if(icon==Icon(Icons.menu)){
+          if(icon==Icons.menu){
             if(onIconPressed != null){
               onIconPressed!();
             }
           }
-          else if (icon==Icon(Icons.arrow_back_ios_new_outlined)){
+          else if (icon==Icons.arrow_back_ios_new_outlined){
             if(onIconPressed != null){
               onIconPressed!();
+              Navigator.pop(context);
+            }else{
               Navigator.pop(context);
             }
           }
         },
-        icon: icon,
+        icon: Icon(icon),
       ),
       actions: [
-        if(icon==Icon(Icons.menu))
+        if(icon==Icons.menu)
           IconButton(
             padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
             onPressed: () {

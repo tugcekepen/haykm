@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
 import '../data/Menu.dart';
-import 'login.dart';
 
 class CafeteriaPage extends StatefulWidget {
   const CafeteriaPage({super.key});
@@ -26,7 +23,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi", icon: Icon(Icons.menu), onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "AtaKafe Menü", icon: Icons.menu, onIconPressed: drawerOpen),
       body: GridView.builder(
         padding: EdgeInsets.all(16.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -86,43 +83,81 @@ class _CafeteriaPage extends State<CafeteriaPage>{
   }
 }
 
-class CategoryItemsScreen extends StatelessWidget {
+class CategoryItemsScreen extends StatefulWidget {
   final MenuCategory category;
 
   const CategoryItemsScreen({required this.category});
 
   @override
+  _CategoryItemsScreenState createState() => _CategoryItemsScreenState();
+}
+
+class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
+  int selectedItemIndex = -1;
+  bool isExpanded = false;
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(category.category, style: TextStyle(color: Theme.of(context).primaryColor),),
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
-      ),
+      appBar: CustomAppBar(title: widget.category.category, icon: Icons.arrow_back_ios_new_outlined),
       body: Padding(
         padding: const EdgeInsets.only(left: 5, top: 5, right: 5),
         child: ListView.builder(
-          itemCount: category.items.length,
-          itemBuilder: (context, index) => ListTile(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(category.items[index].name),
-                Text(
-                  category.items[index].price,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15,
+          itemCount: widget.category.items.length,
+          itemBuilder: (context, index) {
+            return GestureDetector(
+              onTap: () {
+                setState(() {
+                  if (selectedItemIndex == index) {
+                    selectedItemIndex = -1;
+                    isExpanded = false;
+                  } else {
+                    selectedItemIndex = index;
+                    isExpanded = true;
+                  }
+                });
+              },
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFFF3F3),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    margin: EdgeInsets.only(bottom: 5),
+                    padding: EdgeInsets.all(3),
+                    child: ListTile(
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(widget.category.items[index].name),
+                          Text(
+                            widget.category.items[index].price,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 15,
+                            ),
+                          ),
+                        ],
+                      ),
+                      subtitle: Text(widget.category.items[index].subtitle ?? ''),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            subtitle: Text(category.items[index].subtitle ?? ''),
-          ),
+                  if( widget.category.items[index].image != null)
+                    AnimatedContainer(
+                      duration: Duration(milliseconds: 300),
+                      width: selectedItemIndex == index && isExpanded ? MediaQuery.of(context).size.width : 0.0,
+                      height: selectedItemIndex == index && isExpanded ? 200.0 : 0.0,
+                      child: Image.asset(
+                        widget.category.items[index].image!,
+                        fit: BoxFit.cover,
+                        height: 10,
+                      ),
+                    ),
+                ],
+              ),
+            );
+          },
         ),
       ),
     );

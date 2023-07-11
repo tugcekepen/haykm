@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/drawer_menu.dart';
-import 'package:kutuphane_masa_takibi/pages/login.dart';
-import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
@@ -24,14 +21,9 @@ class _CoursesPage extends State<CoursesPage>{
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icon(Icons.menu), onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Kurslar",icon: Icons.menu, onIconPressed: drawerOpen),
       body: Column(
         children: [
-          Padding(padding: const EdgeInsets.all(8.0),
-          child: Card(
-            color: Colors.red,
-            child: Text('sddsghfh'),
-          ),),
           Expanded(
             child: Center(
               child: Text("Kurslar"),

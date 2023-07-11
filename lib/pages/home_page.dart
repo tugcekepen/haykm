@@ -27,13 +27,15 @@ class _MyHomePageState extends State<MyHomePage> {
     final double imageSize = MediaQuery.of(context).size.width * 0.43;
 
     void drawerOpen() {
-      _scaffold?.currentState?.openDrawer();
+      setState(() {
+        _scaffold?.currentState?.openDrawer();
+      });
     }
 
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icon(Icons.menu), onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: drawerOpen),
       body: ListView(
         shrinkWrap: true,
           children: [
@@ -81,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   CustomCard(
                     image: 'assets/images/kafe_cartgorseli.jpeg',
-                    text: 'Kafeterya\n  Menüsü',
+                    text: 'AtaKafe\n  Menü',
                     onPressed: () {
                       if (!isLogin!) { // DUZENLENECEK
                         Navigator.push(

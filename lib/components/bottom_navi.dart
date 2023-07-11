@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../pages/cafeteria_page.dart';
 import '../pages/courses_page.dart';
 import '../pages/home_page.dart';
@@ -66,16 +65,16 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           label: "Kütüphane"),
       BottomNavigationBarItem(
           icon: Icon(
-            Icons.newspaper,
+            Icons.question_answer_rounded,
             color: Color(0xFFF56A77),
             size: 20,
           ),
           activeIcon: Icon(
-            Icons.newspaper,
+            Icons.question_answer_rounded,
             color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
             size: 30,
           ),
-          label: "Haberler"),
+          label: "Öneri-Şikayet"),
     ],
     onTap: (currentIndex) {
       if (!isLogin!) {

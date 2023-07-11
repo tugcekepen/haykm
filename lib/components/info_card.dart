@@ -23,7 +23,7 @@ class InfoCard extends StatelessWidget {
       ),
       subtitle: Text(
         subtitle,
-        style: TextStyle(fontSize: 12.8, color: Theme.of(context).primaryColor),
+        style: TextStyle(fontSize: 12, color: Theme.of(context).primaryColor),
       ),
     );
   }

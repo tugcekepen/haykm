@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/app_bar.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
 TextEditingController _userNameControllerL = TextEditingController();
 TextEditingController _passwordControllerL = TextEditingController();
@@ -28,16 +27,19 @@ class _LogInPageState extends State<LogInPage> {
     super.dispose();
   }
 
+  void _handleTap() {
+    // Odaktan çıkma işlemleri burada gerçekleştirilecek
+    FocusScope.of(context).unfocus(); // İmleci kaybetmek için odaktan çıkar
+  }
+
+
   @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
-      onTap: () {
-        _usernameFocusNode.unfocus();
-        _passwordFocusNode.unfocus();
-      },
+      onTap: _handleTap,
       child: Scaffold(
-        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icon(Icons.arrow_back_ios_new_outlined), onIconPressed: toDeleteFieldLogIn),
+        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.arrow_back_ios_new_outlined, onIconPressed: toDeleteFieldLogIn),
         body: Center(
           child: SingleChildScrollView(
             child: Form(

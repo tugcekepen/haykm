@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
-import 'login.dart';
 
 class MyBooksPage extends StatefulWidget {
   const MyBooksPage({Key? key}) : super(key: key);
@@ -25,7 +22,7 @@ class _MyBooksState extends State<MyBooksPage> {
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icon(Icons.menu), onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: drawerOpen),
       body: Column(
         children: [
           Expanded(
