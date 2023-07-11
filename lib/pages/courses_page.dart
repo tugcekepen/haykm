@@ -66,6 +66,11 @@ class _CoursesPage extends State<CoursesPage>{
       ),
       body: Column(
         children: [
+          Padding(padding: const EdgeInsets.all(8.0),
+          child: Card(
+            color: Colors.red,
+            child: Text('sddsghfh'),
+          ),),
           Expanded(
             child: Center(
               child: Text("Kurslar"),

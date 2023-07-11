@@ -3,56 +3,17 @@ import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
 import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
+import '../data/Menu.dart';
 import 'login.dart';
 
 class CafeteriaPage extends StatefulWidget {
+  const CafeteriaPage({super.key});
+
   @override
   _CafeteriaPage createState() => _CafeteriaPage();
 }
 
 class _CafeteriaPage extends State<CafeteriaPage>{
-
-  final List<MenuCategory> categories = [
-    MenuCategory(
-      category: 'Kahvaltılık ve Çorbalar',
-      image: 'assets/images/kahvalti.jpg',
-      items: [
-        MenuItem('Günün Çorbası', '25 TL'),
-        MenuItem('Ekspres kahvaltı', '90 TL', subtitle: 'Bal, Reçel, Sarelle, Yeşil-Siyah Zeytin, Beyaz Peynir, Kaşar Peyniri, Yumurta, Domates, Salatalık, Tereyağ'),
-        MenuItem('Menemen', '55 TL', subtitle: 'Domates, Sivri Biber, Yumurta, Tereyağ'),
-        MenuItem('Kuymak', '55 TL', subtitle: 'Mısır Unu, Tel Peynir, Tereyağ'),
-        MenuItem('Sahanda Yumurta', '30 TL', subtitle: 'Yumurta, Tereyağ'),
-        MenuItem('Sucuklu Omlet', '45 TL', subtitle: 'Sucuk, Yumurta, Tereyağ'),
-        MenuItem('Serpme Kahvaltı', '250 TL', subtitle: 'Beyaz Peynir, Kaşar Peyniri, Tulum Peyniri, Siyah Zeytin, Yeşil Zeytin, Vişne Reçeli, Bal, Tereyağ, Salam, Örgü Peyniri, Sarelle, Patates Cips, Sahanda Yumurta, Patates Kavurması, Kuymak, Sigara Böreği, Çay'),
-      ],
-    ),
-    MenuCategory(
-      category: 'Aparatifler',
-      image: 'assets/images/aparatif.jpg',
-      items: [
-        MenuItem('Patates Cips', '40 TL', subtitle: 'Parmak Patates, Ketçap, Mayonez'),
-        MenuItem('Kajun Baharatlı Patates', '40 TL', subtitle: 'Elma Dilim Patates, Kajun Baharatı, Ketçap, Mayonez'),
-        MenuItem('Sosis Tabağı', '40 TL', subtitle: 'Sosis, Ketçap, Domates, Salatalık, Cips, Kız. Yağ.'),
-        MenuItem('Tavuk Naget', '60 TL', subtitle: 'Tavuk Göğsü, Galeta Unu, Yumurta Sarısı'),
-        MenuItem('Peynir Naget', '50 TL', subtitle: 'Kaşar Peyniri, Galeta Unu, Yumurta Sarısı'),
-        MenuItem('Sigara Böreği', '40 TL', subtitle: 'Lor Peyniri, Yufka'),
-        MenuItem('Karışık Sıcak Sepeti', '80 TL', subtitle: 'Sigara Böreği, Patates Cips, Sosis'),
-        MenuItem('Kaşarlı Tost', '50 TL', subtitle: 'Kaşar Peyniri, Tereyağ'),
-        MenuItem('Sucuklu Tost', '50 TL', subtitle: 'Sucuk, Tereyağ'),
-        MenuItem('Karışık Tost', '55 TL', subtitle: 'Kaşar Peyniri, Sucuk, Tereyağ'),
-      ],
-    ),
-    MenuCategory(
-      category: 'Burgerler',
-      image: 'assets/images/burger.jpeg',
-      items: [
-        MenuItem('Hamburger', '80 TL', subtitle: 'Hamburger Ekmeği, Hamburger Köftesi, Marul, Kornişon Turşu, Patates Cips'),
-        MenuItem('Cheese Burger', '85 TL', subtitle: 'Hamburger Ekmeği, Hamburger Köftesi, Cheddar Peyniri, Marul, Kornişon Turşu, Patates Cips'),
-        MenuItem('Duble Burger', '110 TL', subtitle: 'Hamburger Ekmeği, Hamburger Köftesi, Marul, Kornişon Turşu, Patates Cips'),
-      ],
-    ),
-  ];
-
   @override
   GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   @override
@@ -206,20 +167,4 @@ class CategoryItemsScreen extends StatelessWidget {
       ),
     );
   }
-}
-
-class MenuCategory {
-  final String category;
-  final String image;
-  final List<MenuItem> items;
-
-  const MenuCategory({required this.category, required this.image, required this.items});
-}
-
-class MenuItem {
-  final String name;
-  final String price;
-  final String? subtitle;
-
-  MenuItem(this.name, this.price, {this.subtitle});
 }

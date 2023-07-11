@@ -84,7 +84,13 @@ class _SignInPageState extends State<SignInPage> {
                     ListView(
                       shrinkWrap: true,
                       children: [
-                        TextFormField(),
+                        buildTextField(
+                          controller: _tcnoController,
+                          labelText: 'TC No',
+                          prefixIcon: Icons.numbers,
+                          maxLength: 11,
+                          keyboardType: TextInputType.number,
+                        ),
                         SizedBox(height: 20.0),
                         buildTextField(
                           controller: _adSoyadController,
