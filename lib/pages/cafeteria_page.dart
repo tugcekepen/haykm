@@ -71,7 +71,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                    color: Theme.of(context).primaryColor),
               ),
             ),
           ),
@@ -127,15 +127,15 @@ class _CafeteriaPage extends State<CafeteriaPage>{
             },
             child: Card(
               elevation: 2.0,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Expanded(
                     child: ClipRRect(
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(8.0),
-                        topRight: Radius.circular(8.0),
+                        topLeft: Radius.circular(20.0),
+                        topRight: Radius.circular(20.0),
                       ),
                       child: Image.asset(
                         categories[index].image,
@@ -174,7 +174,7 @@ class CategoryItemsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(category.category),
+        title: Text(category.category, style: TextStyle(color: Theme.of(context).primaryColor),),
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -187,10 +187,20 @@ class CategoryItemsScreen extends StatelessWidget {
         child: ListView.builder(
           itemCount: category.items.length,
           itemBuilder: (context, index) => ListTile(
-            title: Text(category.items[index].name),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(category.items[index].name),
+                Text(
+                  category.items[index].price,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 15,
+                  ),
+                ),
+              ],
+            ),
             subtitle: Text(category.items[index].subtitle ?? ''),
-            trailing: Text(category.items[index].price, style: TextStyle(fontWeight: FontWeight.bold),),
-
           ),
         ),
       ),

@@ -48,7 +48,7 @@ class _SignInPageState extends State<SignInPage> {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      color: Colors.white),
+                      color: Theme.of(context).primaryColor),
                 ),
               ),
             ),
@@ -75,6 +75,7 @@ class _SignInPageState extends State<SignInPage> {
             child: Form(
               key: _formKey,
               child: Container(
+                decoration: BoxDecoration(shape: BoxShape.rectangle),
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -83,13 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                     ListView(
                       shrinkWrap: true,
                       children: [
-                        buildTextField(
-                          controller: _tcnoController,
-                          labelText: 'TC No',
-                          prefixIcon: Icons.numbers,
-                          maxLength: 11,
-                          keyboardType: TextInputType.number,
-                        ),
+                        TextFormField(),
                         SizedBox(height: 20.0),
                         buildTextField(
                           controller: _adSoyadController,

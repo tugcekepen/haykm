@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                    color: Theme.of(context).primaryColor),
               ),
             ),
           ),
@@ -217,15 +217,15 @@ class CustomCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.4,
-      height: MediaQuery.of(context).size.width * 0.4,
+      width: MediaQuery.of(context).size.width * 0.38,
+      height: MediaQuery.of(context).size.width * 0.38,
       child: InkWell(
         splashColor: Colors.black,
         onTap: onPressed,
         child: Stack(
           children: [
             Card(
-              elevation: 4,
+              elevation: 2.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.0),
               ),
