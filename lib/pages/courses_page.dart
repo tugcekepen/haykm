@@ -21,58 +21,8 @@ class _CoursesPage extends State<CoursesPage> {
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-<<<<<<< HEAD
       appBar: CustomAppBar(scaffold: _scaffold, title: "Kurslar",icon: Icons.menu, onIconPressed: drawerOpen),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Kurslar"),
-            ),
-          ),
-        ],
-=======
-      appBar: AppBar(
-        centerTitle: true,
-        flexibleSpace: SafeArea(
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Hasan Ali Yücel Kültür Merkezi",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor),
-              ),
-            ),
-          ),
-        ),
-        leading: IconButton(
-          onPressed: () {
-            _scaffold.currentState?.openDrawer();
-          },
-          icon: Icon(Icons.menu),
-        ),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
-            onPressed: () {
-              if (!isLogin!) {
-                yonlendir(context, SignInPage());
-              } else if (isLogin!) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ProfilePage(),
-                  ),
-                );
-              }
-            },
-            icon: Icon(Icons.person),
-          ),
-        ],
-      ),
+
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -95,7 +45,6 @@ class _CoursesPage extends State<CoursesPage> {
             KurslarKategoriButon(title:"Yabancı Dil" ),
           ],
         ),
->>>>>>> 040172a2c9b00c7f127c740097dcaad8a9ca75ff
       ),
       bottomNavigationBar: BottomNavi(context, 1),
     );
