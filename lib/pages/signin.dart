@@ -11,6 +11,8 @@ TextEditingController _emailController = TextEditingController();
 bool _isPasswordVisible = false;
 
 class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
+
   @override
   State<SignInPage> createState() => _SignInPageState();
 }
@@ -25,7 +27,6 @@ class _SignInPageState extends State<SignInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
       onTap: _handleTap,
       child: Scaffold(

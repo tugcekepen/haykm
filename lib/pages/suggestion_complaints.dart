@@ -12,11 +12,11 @@ class SuggestionPage extends StatefulWidget {
 }
 
 class _SuggestionPageState extends State<SuggestionPage> {
-  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   String? selectedImageName;
 
   void drawerOpen() {
-    _scaffold?.currentState?.openDrawer();
+    _scaffold.currentState?.openDrawer();
   }
 
   Future<void> _getImage(ImageSource source) async {

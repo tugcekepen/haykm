@@ -4,8 +4,6 @@ import 'cafeteria_page.dart';
 import 'courses_page.dart';
 import 'library_page.dart';
 import 'login.dart';
-import 'signin.dart';
-import 'profile_page.dart';
 import 'suggestion_complaints.dart';
 import '../components/drawer_menu.dart';
 import '../components/bottom_navi.dart';
@@ -13,12 +11,14 @@ import '../components/bottom_navi.dart';
 int page = 0;
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
 
 
@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     void drawerOpen() {
       setState(() {
-        _scaffold?.currentState?.openDrawer();
+        _scaffold.currentState?.openDrawer();
       });
     }
 

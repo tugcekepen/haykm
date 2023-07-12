@@ -10,6 +10,8 @@ bool? _isLogin = false;
 bool? isLogin = _isLogin;
 
 class LogInPage extends StatefulWidget {
+  const LogInPage({super.key});
+
   @override
   State<LogInPage> createState() => _LogInPageState();
 }
@@ -34,7 +36,6 @@ class _LogInPageState extends State<LogInPage> {
 
   @override
   Widget build(BuildContext context) {
-    final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
       onTap: _handleTap,
       child: Scaffold(

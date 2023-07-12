@@ -5,15 +5,17 @@ import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 
 class CoursesPage extends StatefulWidget {
+  const CoursesPage({super.key});
+
   @override
   _CoursesPage createState() => _CoursesPage();
 }
 
 class _CoursesPage extends State<CoursesPage> {
-  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
   void drawerOpen() {
-    _scaffold?.currentState?.openDrawer();
+    _scaffold.currentState?.openDrawer();
   }
 
   @override
@@ -22,10 +24,6 @@ class _CoursesPage extends State<CoursesPage> {
       key: _scaffold,
       drawer: DrawerMenu(),
       appBar: CustomAppBar(scaffold: _scaffold, title: "Kurslar",icon: Icons.menu, onIconPressed: drawerOpen),
-<<<<<<< HEAD
-=======
-
->>>>>>> 4f4d7d5bbe20f9a824efd96253ccec89dc6d54ab
       body: SingleChildScrollView(
         child: Column(
           children: [
