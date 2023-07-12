@@ -22,6 +22,10 @@ class _CoursesPage extends State<CoursesPage> {
       key: _scaffold,
       drawer: DrawerMenu(),
       appBar: CustomAppBar(scaffold: _scaffold, title: "Kurslar",icon: Icons.menu, onIconPressed: drawerOpen),
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4f4d7d5bbe20f9a824efd96253ccec89dc6d54ab
       body: SingleChildScrollView(
         child: Column(
           children: [
