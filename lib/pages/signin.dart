@@ -30,19 +30,16 @@ class _SignInPageState extends State<SignInPage> {
       onTap: _handleTap,
       child: Scaffold(
         appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.arrow_back_ios_new_outlined, onIconPressed: toDeleteFieldSignIn),
-        body: SingleChildScrollView(
-            child: Form(
+        body: ListView(
+            shrinkWrap: true,
+          children: [
+            Form(
               key: _formKey,
               child: Container(
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ListView(
-                      shrinkWrap: true,
-                      children: [
-
                         buildTextField(
                           controller: _tcnoController,
                           labelText: 'TC No',
@@ -120,7 +117,7 @@ class _SignInPageState extends State<SignInPage> {
                             }
                           },
                           style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 16.0),
+                            padding: EdgeInsets.symmetric(horizontal: 25.0),
                             shape: StadiumBorder(),
                           ),
                           child: Text(
@@ -174,13 +171,11 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ],
                     )
-
-                  ],
                 ),
               ),
-            ),
-          ),
+          ]
         ),
+          ),
     );
   }
 
