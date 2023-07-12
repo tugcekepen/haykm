@@ -11,7 +11,7 @@ class CoursesPage extends StatefulWidget {
   _CoursesPage createState() => _CoursesPage();
 }
 
-class _CoursesPage extends State<CoursesPage>{
+class _CoursesPage extends State<CoursesPage> {
   GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class _CoursesPage extends State<CoursesPage>{
                 style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white),
+                    color: Theme.of(context).primaryColor),
               ),
             ),
           ),
@@ -45,12 +45,7 @@ class _CoursesPage extends State<CoursesPage>{
             padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
             onPressed: () {
               if (!isLogin!) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => SignInPage(),
-                  ),
-                );
+                yonlendir(context, SignInPage());
               } else if (isLogin!) {
                 Navigator.push(
                   context,
@@ -64,18 +59,64 @@ class _CoursesPage extends State<CoursesPage>{
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Kurslar"),
-            ),
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            KurslarKategoriButon(title:"Ses, Görüntü, Işık Sahne Sistemleri" ),
+            KurslarKategoriButon(title:"Radyo ve Televizyon" ),
+            KurslarKategoriButon(title:"Güzellik ve Saç Bakım Hizmetleri" ),
+            KurslarKategoriButon(title:"Radyo ve Televizyon" ),
+            KurslarKategoriButon(title:"Sanat Tasarım" ),
+            KurslarKategoriButon(title:"Mum ve Sabun" ),
+            KurslarKategoriButon(title:"Bilişim teknolojileri" ),
+            KurslarKategoriButon(title:"Teknik Servis" ),
+            KurslarKategoriButon(title:"Grafik, Animasyon, Fotoğraf Çekimi" ),
+            KurslarKategoriButon(title:"Reklam Tasarım, Dişital baskı" ),
+            KurslarKategoriButon(title:"Kuyumculuk" ),
+            KurslarKategoriButon(title:"Ahşap CNC" ),
+            KurslarKategoriButon(title:"Çocuk Gelişimi" ),
+            KurslarKategoriButon(title:"Hasta ve Yaşlı Bakımı" ),
+            KurslarKategoriButon(title:"Aşçılık" ),
+            KurslarKategoriButon(title:"Pastacılık" ),
+            KurslarKategoriButon(title:"Yabancı Dil" ),
+          ],
+        ),
       ),
       bottomNavigationBar: BottomNavi(context, 1),
     );
   }
 
+  void yonlendir(BuildContext context,  Widget page) {
 
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => page,
+      ),
+    );
+
+  }
 }
+
+class KurslarKategoriButon extends StatelessWidget {
+  const KurslarKategoriButon({
+    super.key, required this.title,
+  });
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+          child: ElevatedButton(
+              onPressed: (){
+
+              },
+              child: Text(title)),
+        ),
+    );
+  }
+}
+
