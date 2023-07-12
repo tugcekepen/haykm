@@ -30,12 +30,10 @@ class _SignInPageState extends State<SignInPage> {
       onTap: _handleTap,
       child: Scaffold(
         appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.arrow_back_ios_new_outlined, onIconPressed: toDeleteFieldSignIn),
-        body: Center(
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
             child: Form(
               key: _formKey,
               child: Container(
-                decoration: BoxDecoration(shape: BoxShape.rectangle),
                 padding: EdgeInsets.all(20.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -44,6 +42,7 @@ class _SignInPageState extends State<SignInPage> {
                     ListView(
                       shrinkWrap: true,
                       children: [
+
                         buildTextField(
                           controller: _tcnoController,
                           labelText: 'TC No',
@@ -85,7 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                           },
                           maxLength: 8,
                         ),
-                        SizedBox(height: 40.0),
+                        SizedBox(height: 30.0),
                         ElevatedButton(
                           onPressed: () {
                             // Üye ol butonuna tıklandığında yapılacak işlemler
@@ -129,7 +128,33 @@ class _SignInPageState extends State<SignInPage> {
                             style: TextStyle(fontSize: 18.0),
                           ),
                         ),
-                        SizedBox(height: 20.0),
+                        SizedBox(height: 30.0),
+                        Column(
+                          children: [
+                            Divider(
+                              height: 2,
+                              color: Theme.of(context).dividerColor,
+                            ),
+                            SizedBox(height: 12.0),
+                            Text("Sosyal Hesaplar ile Üye Ol"),
+                          ],
+                        ),
+                        Flex(
+                          direction: Axis.horizontal,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                                onPressed: () {}, icon: Icon(Icons.mark_as_unread)),
+                            IconButton(
+                                onPressed: () {}, icon: Icon(Icons.facebook)),
+                          ],
+                        ),
+                        SizedBox(height: 5.0),
+                        Divider(
+                          height: 2,
+                          color: Theme.of(context).dividerColor,
+                        ),
+                        SizedBox(height: 30.0),
                         TextButton(
                           onPressed: () {
                             Navigator.push(
@@ -156,7 +181,6 @@ class _SignInPageState extends State<SignInPage> {
             ),
           ),
         ),
-      ),
     );
   }
 

@@ -32,14 +32,16 @@ class _LogInPageState extends State<LogInPage> {
     FocusScope.of(context).unfocus(); // İmleci kaybetmek için odaktan çıkar
   }
 
-
   @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.23;
     return GestureDetector(
       onTap: _handleTap,
       child: Scaffold(
-        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.arrow_back_ios_new_outlined, onIconPressed: toDeleteFieldLogIn),
+        appBar: CustomAppBar(
+            title: "Hasan Ali Yücel Kültür Merkezi",
+            icon: Icons.arrow_back_ios_new_outlined,
+            onIconPressed: toDeleteFieldLogIn),
         body: Center(
           child: SingleChildScrollView(
             child: Form(
@@ -50,18 +52,15 @@ class _LogInPageState extends State<LogInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/images/anonim_person.jpg',
-                          width: imageSize,
-                          height: imageSize,
-                          fit: BoxFit.cover,
+                    Center(
+                      child: Text(
+                        "E-Posta ile Giriş Yapın",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    SizedBox(height: 35.0),
+                    SizedBox(height: 20.0),
                     buildTextField(
                       focusNode: _usernameFocusNode,
                       controller: _userNameControllerL,
@@ -84,7 +83,12 @@ class _LogInPageState extends State<LogInPage> {
                       },
                       maxLength: 8,
                     ),
-                    SizedBox(height: 40.0),
+                    SizedBox(height: 10.0),
+                    TextButton(
+                      child: Text("Şifremi Unuttum"),
+                      onPressed: () {},
+                    ),
+                    SizedBox(height: 30.0),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -126,13 +130,40 @@ class _LogInPageState extends State<LogInPage> {
                         }
                       },
                       style: ElevatedButton.styleFrom(
+                        elevation: 8,
                         padding: EdgeInsets.symmetric(vertical: 16.0),
                         shape: StadiumBorder(),
                       ),
                       child: Text(
-                        'Giriş Yap',
+                        'Giriş',
                         style: TextStyle(fontSize: 18.0),
                       ),
+                    ),
+                    SizedBox(height: 45.0),
+                    Column(
+                      children: [
+                        Divider(
+                          height: 2,
+                          color: Theme.of(context).dividerColor,
+                        ),
+                        SizedBox(height: 12.0),
+                        Text("Sosyal Hesaplar ile Giriş Yap"),
+                      ],
+                    ),
+                    Flex(
+                      direction: Axis.horizontal,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.mark_as_unread)),
+                        IconButton(
+                            onPressed: () {}, icon: Icon(Icons.facebook)),
+                      ],
+                    ),
+                    SizedBox(height: 5.0),
+                    Divider(
+                      height: 2,
+                      color: Theme.of(context).dividerColor,
                     ),
                   ],
                 ),

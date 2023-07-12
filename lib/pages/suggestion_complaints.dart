@@ -107,6 +107,9 @@ class _SuggestionPageState extends State<SuggestionPage> {
                     ),
                     SizedBox(height: 16),
                     ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(horizontal: 50.0),
+                      ),
                       onPressed: () {
                         showDialog(
                           context: context,
@@ -152,11 +155,10 @@ class _SuggestionPageState extends State<SuggestionPage> {
                         ),
                       ),
                     SizedBox(height: 15),
-                    Padding(
-                      padding: EdgeInsets.only(left: 275),
+                    Center(
                       child: ElevatedButton(onPressed: (){},
-                          child: Text("Gönder"),
-                      ),
+                            child: Text("Gönder"),
+                        ),
                     ),
                   ],
                 ),
