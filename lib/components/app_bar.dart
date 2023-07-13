@@ -18,7 +18,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback? onIconPressed;
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +59,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: [
         if(icon==Icons.menu)
           IconButton(
-            padding: EdgeInsets.fromLTRB(5, 0, 10, 0),
+            padding: const EdgeInsets.fromLTRB(5, 0, 10, 0),
             onPressed: () {
               if (!isLogin!) {
                 Navigator.push(

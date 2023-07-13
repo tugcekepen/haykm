@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
-import '../data/Menu.dart';
+import '../data/atakafe_menu.dart';
 
 class CafeteriaPage extends StatefulWidget {
   const CafeteriaPage({super.key});
@@ -12,10 +12,10 @@ class CafeteriaPage extends StatefulWidget {
 }
 
 class _CafeteriaPage extends State<CafeteriaPage>{
-  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
   void drawerOpen() {
-    _scaffold?.currentState?.openDrawer();
+    _scaffold.currentState?.openDrawer();
   }
 
   @override
@@ -44,7 +44,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
               );
             },
             child: Card(
-              elevation: 2.0,
+              elevation: 5.0,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -86,7 +86,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
 class CategoryItemsScreen extends StatefulWidget {
   final MenuCategory category;
 
-  const CategoryItemsScreen({required this.category});
+  const CategoryItemsScreen({super.key, required this.category});
 
   @override
   _CategoryItemsScreenState createState() => _CategoryItemsScreenState();

@@ -12,10 +12,10 @@ class InfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: CircleAvatar(
+        backgroundColor: Color(0xD5CE0D44).withOpacity(0.0),
         child: Image.asset(
           'assets/images/logo_image.png',
         ),
-        backgroundColor: Color(0xD5CE0D44).withOpacity(0.0),
       ),
       title: Text(
         title,

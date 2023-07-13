@@ -11,10 +11,10 @@ class MyBooksPage extends StatefulWidget {
 }
 
 class _MyBooksState extends State<MyBooksPage> {
-  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
   void drawerOpen() {
-    _scaffold?.currentState?.openDrawer();
+    _scaffold.currentState?.openDrawer();
   }
 
   @override

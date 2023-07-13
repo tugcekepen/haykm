@@ -4,15 +4,17 @@ import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
 
 class LibraryPage extends StatefulWidget {
+  const LibraryPage({super.key});
+
   @override
   _LibraryPage createState() => _LibraryPage();
 }
 
 class _LibraryPage extends State<LibraryPage>{
-  GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
   void drawerOpen() {
-    _scaffold?.currentState?.openDrawer();
+    _scaffold.currentState?.openDrawer();
   }
 
   @override
