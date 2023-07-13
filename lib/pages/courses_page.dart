@@ -65,7 +65,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const RadioTv(),
                   ),
                 );
               },
@@ -76,18 +76,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
-                  ),
-                );
-              },
-            ),
-            KurslarKategoriButon(
-              title: "Radyo ve Televizyon",
-              function: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const BeautyAndHair(),
                   ),
                 );
               },
@@ -98,7 +87,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const ArtDesign(),
                   ),
                 );
               },
@@ -109,18 +98,18 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const CandleAndSoap(),
                   ),
                 );
               },
             ),
             KurslarKategoriButon(
-              title: "Bilişim teknolojileri",
+              title: "Bilişim Teknolojileri",
               function: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const InfoTechno(),
                   ),
                 );
               },
@@ -131,7 +120,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const TechService(),
                   ),
                 );
               },
@@ -142,18 +131,18 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const GraphAnimPhoto(),
                   ),
                 );
               },
             ),
             KurslarKategoriButon(
-              title: "Reklam Tasarım, Dişital baskı",
+              title: "Reklam Tasarım, Dijital baskı",
               function: () {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const AdDesign(),
                   ),
                 );
               },
@@ -164,7 +153,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const Jewelry(),
                   ),
                 );
               },
@@ -175,7 +164,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const Wood(),
                   ),
                 );
               },
@@ -186,7 +175,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const ChildDev(),
                   ),
                 );
               },
@@ -197,7 +186,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const PatientElderlyCare(),
                   ),
                 );
               },
@@ -208,7 +197,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const Cooking(),
                   ),
                 );
               },
@@ -219,7 +208,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const Pastry(),
                   ),
                 );
               },
@@ -230,7 +219,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const ForeignLang(),
                   ),
                 );
               },
@@ -258,7 +247,12 @@ class KurslarKategoriButon extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Center(
-        child: ElevatedButton(onPressed: function!, child: Text(title)),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            elevation: 5
+          ),
+            onPressed: function!,
+            child: Text(title)),
       ),
     );
   }
