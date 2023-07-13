@@ -193,7 +193,14 @@ class _CoursesPage extends State<CoursesPage> {
             ),
             KurslarKategoriButon(
               title: "Hasta ve Yaşlı Bakımı",
-              function: () {},
+              function: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const SgissPage(),
+                  ),
+                );
+              },
             ),
             KurslarKategoriButon(
               title: "Aşçılık",
