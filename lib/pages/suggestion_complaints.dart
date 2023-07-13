@@ -166,8 +166,7 @@ class _SuggestionPageState extends State<SuggestionPage> {
                         ),
                       ),
                     SizedBox(height: 15),
-                    Flex(
-                      direction: Axis.horizontal,
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         ElevatedButton(

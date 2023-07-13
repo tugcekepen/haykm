@@ -151,8 +151,7 @@ class _LogInPageState extends State<LogInPage> {
                         Text("Sosyal Hesaplar ile Giriş Yap"),
                       ],
                     ),
-                    Flex(
-                      direction: Axis.horizontal,
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         IconButton(

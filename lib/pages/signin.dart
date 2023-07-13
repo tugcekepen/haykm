@@ -139,8 +139,7 @@ class _SignInPageState extends State<SignInPage> {
                             Text("Sosyal Hesaplar ile Üye Ol"),
                           ],
                         ),
-                        Flex(
-                          direction: Axis.horizontal,
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             IconButton(
