@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import '../drawer_pages/suggestion_complaints.dart';
 import '../pages/cafeteria_page.dart';
 import '../pages/courses_page.dart';
+import '../pages/events_page.dart';
 import '../pages/home_page.dart';
 import '../pages/library_page.dart';
 import '../pages/login.dart';
-import '../pages/suggestion_complaints.dart';
-import '../pages/signin.dart';
 
 Widget BottomNavi(BuildContext context, int currentIndex) {
   return BottomNavigationBar(
@@ -65,16 +65,16 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           label: "Kütüphane"),
       BottomNavigationBarItem(
           icon: Icon(
-            Icons.question_answer_rounded,
+            Icons.event,
             color: Color(0xFFF56A77),
             size: 20,
           ),
           activeIcon: Icon(
-            Icons.question_answer_rounded,
+            Icons.event,
             color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
             size: 30,
           ),
-          label: "Öneri-Şikayet"),
+          label: "Etkinlikler"),
     ],
     onTap: (currentIndex) {
       if (!isLogin!) {
@@ -118,7 +118,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           case 4:
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => SuggestionPage()),
+              MaterialPageRoute(builder: (context) => EventsPage()),
             );
             break;
         }

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
 import 'cafeteria_page.dart';
 import 'courses_page.dart';
+import 'events_page.dart';
 import 'library_page.dart';
 import 'login.dart';
-import 'suggestion_complaints.dart';
 import '../components/drawer_menu.dart';
 import '../components/bottom_navi.dart';
 
@@ -135,13 +135,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       CustomCard(
                         image: 'assets/images/news_cartgorseli.jpeg',
-                        text: ' Öneri ve\nŞikayetler',
+                        text: ' Etkinlikler',
                         onPressed: () { // DUZENLENECEK
                           if (!isLogin!) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SuggestionPage(),
+                                builder: (context) => EventsPage(),
                               ),
                             );
                           } else if (isLogin!) {
@@ -150,7 +150,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => SuggestionPage(),
+                                builder: (context) => EventsPage(),
                               ),
                             );
                           }

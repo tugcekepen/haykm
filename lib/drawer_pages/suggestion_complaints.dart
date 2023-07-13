@@ -4,8 +4,8 @@ import 'package:kutuphane_masa_takibi/pages/signin.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
-import 'home_page.dart';
-import 'login.dart';
+import '../pages/home_page.dart';
+import '../pages/login.dart';
 
 TextEditingController _titleController = TextEditingController();
 TextEditingController _contentController = TextEditingController();
