@@ -45,6 +45,7 @@ class _SignInPageState extends State<SignInPage> {
                           controller: _tcnoController,
                           labelText: 'TC No',
                           prefixIcon: Icons.numbers,
+                          suffixText: "11",
                           maxLength: 11,
                           keyboardType: TextInputType.number,
                         ),
@@ -153,7 +154,7 @@ class _SignInPageState extends State<SignInPage> {
                           height: 2,
                           color: Theme.of(context).dividerColor,
                         ),
-                        SizedBox(height: 30.0),
+                        SizedBox(height: 20.0),
                         TextButton(
                           onPressed: () {
                             Navigator.push(
@@ -196,6 +197,7 @@ Widget buildTextField({
   IconData? prefixIcon,
   int? maxLength,
   TextInputType? keyboardType,
+  String? suffixText,
 }) {
   return TextFormField(
     controller: controller,
@@ -206,6 +208,7 @@ Widget buildTextField({
       return null;
     },
     decoration: InputDecoration(
+      suffixText: suffixText,
       labelText: labelText,
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(color: Color(0xFFCE0D44)),

@@ -83,6 +83,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
               context,
               MaterialPageRoute(builder: (context) => MyHomePage()),
             );
+            toDeleteFieldSC();
         } else {
           Navigator.push(
             context,

@@ -44,7 +44,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
               );
             },
             child: Card(
-              elevation: 2.0,
+              elevation: 5.0,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
