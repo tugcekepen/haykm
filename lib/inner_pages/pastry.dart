@@ -12,16 +12,21 @@ class Pastry extends StatefulWidget {
 class _PastryState extends State<Pastry> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(title: "Pastacılık", icon: Icons.arrow_back_ios_new_outlined),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Pastacılık"),
-            ),
-          ),
-        ],
+    return const Scaffold(
+      appBar: CustomAppBar(
+          title: "Pastacılık", icon: Icons.arrow_back_ios_new_outlined),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Text("Pastacı Çırağı"),
+            Text("Pastacı Yardımcısı"),
+            Text("Pastacı"),
+            Text("Yaş Pasta Yapımı"),
+            Text("Pasta Yapımı ve Sunumu"),
+            Text("Butik Çikolata Yapımı"),
+          ],
+        ),
       ),
     );
   }

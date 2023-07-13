@@ -12,16 +12,20 @@ class CandleAndSoap extends StatefulWidget {
 class _CandleAndSoapState extends State<CandleAndSoap> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(title: "Mum ve Sabun", icon: Icons.arrow_back_ios_new_outlined),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Mum ve Sabun Yapımı"),
-            ),
-          ),
-        ],
+      body: SizedBox(
+        child: Column(
+          children: [
+            Text("Jel Mum Yapımı(120)"),
+            Text("Mum Oymacılığı(216)"),
+            Text("Mumda Resim(248)"),
+            Text("El-Banyo Sabunu(528)"),
+            Text("Mis Sabun Üretimi(248)"),
+            Text("El Yapımı Sabun Üretimi(320)"),
+            Text("Geleneksel Yöntemle Mum Modelleme(224)"),
+          ],
+        ),
       ),
     );
   }

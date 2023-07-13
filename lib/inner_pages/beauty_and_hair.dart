@@ -20,15 +20,15 @@ class _BeautyAndHairState extends State<BeautyAndHair> {
         Expanded(
           child: Center(
               child: Padding(
-                padding: EdgeInsets.all(8.0),
-                child: Column(children: [
-                  Text("Sahne Makyajı(306)"),
-                  Text("Makyaj Yapma Teknikleri(208)"),
-                  Text("Makyaj Elemanı(2528)"),
-                  Text("Kalıcı Makyaj(348)"),
-                  Text("Makyör-Makyöz(497)"),
-                ]),
-              )),
+            padding: EdgeInsets.all(8.0),
+            child: Column(children: [
+              Text("Sahne Makyajı(306)"),
+              Text("Makyaj Yapma Teknikleri(208)"),
+              Text("Makyaj Elemanı(2528)"),
+              Text("Kalıcı Makyaj(348)"),
+              Text("Makyör-Makyöz(497)"),
+            ]),
+          )),
         ),
       ]),
     );

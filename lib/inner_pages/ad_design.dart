@@ -12,16 +12,26 @@ class AdDesign extends StatefulWidget {
 class _AdDesignState extends State<AdDesign> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(title: "Reklam Tasarım, Dijital Baskı", icon: Icons.arrow_back_ios_new_outlined),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Reklam Tasarım, Dijital Baskı"),
-            ),
-          ),
-        ],
+    return const Scaffold(
+      appBar: CustomAppBar(
+          title: "Reklam Tasarım, Dijital Baskı",
+          icon: Icons.arrow_back_ios_new_outlined),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Text("Bilgisayar Destekli Reklam Tasarım(128)"),
+            Text("PhotoShop(72)"),
+            Text("İllustrasyon(128)"),
+            Text("Dijital Baskı(280)"),
+            Text("Masaüstü Yayıncılık(392)"),
+            Text("Serigrafi(384)"),
+            Text("Grafik Desen Çizimi(288)"),
+            Text("Ciltleme(480)"),
+            Text("Fotoğraf Baskı Operatörü(2352)"),
+            Text("Yayın Grafiği"),
+          ],
+        ),
       ),
     );
   }

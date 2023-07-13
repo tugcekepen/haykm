@@ -76,20 +76,6 @@ class _CoursesPage extends State<CoursesPage> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const BeautyAndHair(),
-<<<<<<< HEAD
-                  ),
-                );
-              },
-            ),
-            KurslarKategoriButon(
-              title: "Radyo ve Televizyon",
-              function: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
-=======
->>>>>>> 0bc673bae85a43e3601de8b3a899643dbd562e52
                   ),
                 );
               },

@@ -11,16 +11,21 @@ class Jewelry extends StatefulWidget {
 class _JewelryState extends State<Jewelry> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(title: "Kuyumculuk", icon: Icons.arrow_back_ios_new_outlined),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Kuyumculuk"),
-            ),
-          ),
-        ],
+    return const Scaffold(
+      appBar: CustomAppBar(
+          title: "Kuyumculuk", icon: Icons.arrow_back_ios_new_outlined),
+      body: SizedBox(
+        width: double.infinity,
+        child: Column(
+          children: [
+            Text("Gümüş Takı İşlemeciliği"),
+            Text("Takı Çizimi ve Üretimi"),
+            Text("Hasır Örmeci"),
+            Text("Takı Yapımı"),
+            Text("İmitasyon Takı İmalatçısı"),
+            Text("Diğer"),
+          ],
+        ),
       ),
     );
   }

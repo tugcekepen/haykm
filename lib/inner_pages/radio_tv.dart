@@ -18,8 +18,7 @@ class _RadioTvState extends State<RadioTv> {
           icon: Icons.arrow_back_ios_new_outlined),
       body: ListView(children: const [
         Expanded(
-          child: Center(
-              child: Padding(
+          child: Padding(
             padding: EdgeInsets.all(8.0),
             child: Column(children: [
               Text("Radyo ve Televizyon"),
@@ -34,7 +33,7 @@ class _RadioTvState extends State<RadioTv> {
               Text("Televizyon Grafiği"),
               Text("Televizyon Muhabiri"),
             ]),
-          )),
+          ),
         ),
       ]),
     );
