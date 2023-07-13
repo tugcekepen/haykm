@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/drawer_menu.dart';
-import 'package:kutuphane_masa_takibi/pages/sgiss_page.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/sgiss_page.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/ad_design.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/art_design.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/beauty_and_hair.dart';
@@ -19,7 +19,6 @@ import 'package:kutuphane_masa_takibi/inner_pages/wood.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
-import '../inner_pages/sgiss.dart';
 
 class CoursesPage extends StatefulWidget {
   const CoursesPage({super.key});
@@ -65,7 +64,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const RadioTv(),
                   ),
                 );
               },
@@ -76,7 +75,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const SgissPage(),
+                    builder: (context) => const BeautyAndHair(),
                   ),
                 );
               },

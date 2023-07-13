@@ -13,16 +13,24 @@ class _BeautyAndHairState extends State<BeautyAndHair> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: "Güzellik ve Saç Bakım Hizmetleri", icon: Icons.arrow_back_ios_new_outlined),
-      body: Column(
-        children: [
-          Expanded(
-            child: Center(
-              child: Text("Güzellik ve Saç Bakım Hizmetleri"),
-            ),
-          ),
-        ],
-      ),
+      appBar: const CustomAppBar(
+          title: "Güzellik ve Saç Bakım Hizmetleri",
+          icon: Icons.arrow_back_ios_new_outlined),
+      body: ListView(children: const [
+        Expanded(
+          child: Center(
+              child: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(children: [
+                  Text("Sahne Makyajı(306)"),
+                  Text("Makyaj Yapma Teknikleri(208)"),
+                  Text("Makyaj Elemanı(2528)"),
+                  Text("Kalıcı Makyaj(348)"),
+                  Text("Makyör-Makyöz(497)"),
+                ]),
+              )),
+        ),
+      ]),
     );
   }
 }
