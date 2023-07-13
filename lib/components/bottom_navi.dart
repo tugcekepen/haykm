@@ -87,7 +87,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
         } else {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => SignInPage()),
+            MaterialPageRoute(builder: (context) => LogInPage()),
           );
         }
       } else if (isLogin!) {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/app_bar.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
+import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
 TextEditingController _userNameControllerL = TextEditingController();
 TextEditingController _passwordControllerL = TextEditingController();
@@ -165,6 +166,24 @@ class _LogInPageState extends State<LogInPage> {
                       height: 2,
                       color: Theme.of(context).dividerColor,
                     ),
+                    SizedBox(height: 20.0),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SignInPage(),
+                          ),
+                        );
+                      },
+                      child: Text(
+                        'Hesabınız yok mu? Üye Ol',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          decoration: TextDecoration.underline,
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import '../pages/login.dart';
 import '../pages/profile_page.dart';
-import '../pages/signin.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -65,7 +63,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SignInPage(),
+                    builder: (context) => LogInPage(),
                   ),
                 );
               } else if (isLogin!) {
