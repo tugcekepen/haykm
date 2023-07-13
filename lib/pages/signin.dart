@@ -29,158 +29,159 @@ class _SignInPageState extends State<SignInPage> {
     return GestureDetector(
       onTap: _handleTap,
       child: Scaffold(
-        appBar: CustomAppBar(title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.arrow_back_ios_new_outlined, onIconPressed: toDeleteFieldSignIn),
+        appBar: CustomAppBar(
+            title: "Hasan Ali Yücel Kültür Merkezi",
+            icon: Icons.arrow_back_ios_new_outlined,
+            onIconPressed: toDeleteFieldSignIn),
         body: SingleChildScrollView(
-            child: Form(
-              key: _formKey,
-              child: Container(
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    ListView(
-                      shrinkWrap: true,
-                      children: [
-
-                        buildTextField(
-                          controller: _tcnoController,
-                          labelText: 'TC No',
-                          prefixIcon: Icons.numbers,
-                          maxLength: 11,
-                          keyboardType: TextInputType.number,
-                        ),
-                        SizedBox(height: 10.0),
-                        buildTextField(
-                          controller: _adSoyadController,
-                          labelText: 'Ad Soyad',
-                          prefixIcon: Icons.confirmation_number_outlined,
-                        ),
-                        SizedBox(height: 10.0),
-                        buildTextField(
-                          controller: _userNameController,
-                          labelText: 'Kullanıcı Adı',
-                          prefixIcon: Icons.person_outline,
-                          maxLength: 20,
-                        ),
-                        SizedBox(height: 10.0),
-                        buildTextField(
-                          controller: _emailController,
-                          labelText: 'E-mail',
-                          prefixIcon: Icons.email_outlined,
-                          keyboardType: TextInputType.emailAddress,
-                        ),
-                        SizedBox(height: 10.0),
-                        buildPasswordField(
-                          controller: _passwordController,
-                          labelText: 'Şifre',
-                          suffixIcon: _isPasswordVisible
-                              ? Icons.visibility
-                              : Icons.visibility_off,
-                          onPressedSuffixIcon: () {
-                            setState(() {
-                              _isPasswordVisible = !_isPasswordVisible;
-                            });
-                          },
-                          maxLength: 8,
-                        ),
-                        SizedBox(height: 30.0),
-                        ElevatedButton(
-                          onPressed: () {
-                            // Üye ol butonuna tıklandığında yapılacak işlemler
-                            if (_formKey.currentState!.validate()) {
-                              // Form geçerliyse gönderilecek işlemler burada yapılır
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => LogInPage(),
-                                ),
-                              );
-                            } else {
-                              // Form geçerli değilse hata mesajı gösterilir
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  return AlertDialog(
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(12)),
-                                    title: Text('Hata'),
-                                    content: Text('Zorunlu alanları doldurun.'),
-                                    actions: [
-                                      TextButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text('Tamam'),
-                                      ),
-                                    ],
-                                  );
-                                },
-                              );
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 16.0),
-                            shape: StadiumBorder(),
-                          ),
-                          child: Text(
-                            'Üye Ol',
-                            style: TextStyle(fontSize: 18.0),
-                          ),
-                        ),
-                        SizedBox(height: 30.0),
-                        Column(
-                          children: [
-                            Divider(
-                              height: 2,
-                              color: Theme.of(context).dividerColor,
-                            ),
-                            SizedBox(height: 12.0),
-                            Text("Sosyal Hesaplar ile Üye Ol"),
-                          ],
-                        ),
-                        Flex(
-                          direction: Axis.horizontal,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(
-                                onPressed: () {}, icon: Icon(Icons.mark_as_unread)),
-                            IconButton(
-                                onPressed: () {}, icon: Icon(Icons.facebook)),
-                          ],
-                        ),
-                        SizedBox(height: 5.0),
-                        Divider(
-                          height: 2,
-                          color: Theme.of(context).dividerColor,
-                        ),
-                        SizedBox(height: 30.0),
-                        TextButton(
-                          onPressed: () {
+          child: Form(
+            key: _formKey,
+            child: Container(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ListView(
+                    shrinkWrap: true,
+                    children: [
+                      buildTextField(
+                        controller: _tcnoController,
+                        labelText: 'TC No',
+                        prefixIcon: Icons.numbers,
+                        maxLength: 11,
+                        keyboardType: TextInputType.number,
+                      ),
+                      SizedBox(height: 10.0),
+                      buildTextField(
+                        controller: _adSoyadController,
+                        labelText: 'Ad Soyad',
+                        prefixIcon: Icons.confirmation_number_outlined,
+                      ),
+                      SizedBox(height: 10.0),
+                      buildTextField(
+                        controller: _userNameController,
+                        labelText: 'Kullanıcı Adı',
+                        prefixIcon: Icons.person_outline,
+                        maxLength: 20,
+                      ),
+                      SizedBox(height: 10.0),
+                      buildTextField(
+                        controller: _emailController,
+                        labelText: 'E-mail',
+                        prefixIcon: Icons.email_outlined,
+                        keyboardType: TextInputType.emailAddress,
+                      ),
+                      SizedBox(height: 10.0),
+                      buildPasswordField(
+                        controller: _passwordController,
+                        labelText: 'Şifre',
+                        suffixIcon: _isPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        onPressedSuffixIcon: () {
+                          setState(() {
+                            _isPasswordVisible = !_isPasswordVisible;
+                          });
+                        },
+                        maxLength: 8,
+                      ),
+                      SizedBox(height: 30.0),
+                      ElevatedButton(
+                        onPressed: () {
+                          // Üye ol butonuna tıklandığında yapılacak işlemler
+                          if (_formKey.currentState!.validate()) {
+                            // Form geçerliyse gönderilecek işlemler burada yapılır
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => LogInPage(),
                               ),
                             );
-                          },
-                          child: Text(
-                            'Zaten üye misiniz? Giriş Yap',
-                            style: TextStyle(
-                              fontSize: 16.0,
-                              decoration: TextDecoration.underline,
+                          } else {
+                            // Form geçerli değilse hata mesajı gösterilir
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12)),
+                                  title: Text('Hata'),
+                                  content: Text('Zorunlu alanları doldurun.'),
+                                  actions: [
+                                    TextButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                      child: Text('Tamam'),
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          }
+                        },
+                        style: ElevatedButton.styleFrom(
+                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          shape: StadiumBorder(),
+                        ),
+                        child: Text(
+                          'Üye Ol',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                      SizedBox(height: 30.0),
+                      Column(
+                        children: [
+                          Divider(
+                            height: 2,
+                            color: Theme.of(context).dividerColor,
+                          ),
+                          SizedBox(height: 12.0),
+                          Text("Sosyal Hesaplar ile Üye Ol"),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.mark_as_unread)),
+                          IconButton(
+                              onPressed: () {}, icon: Icon(Icons.facebook)),
+                        ],
+                      ),
+                      SizedBox(height: 5.0),
+                      Divider(
+                        height: 2,
+                        color: Theme.of(context).dividerColor,
+                      ),
+                      SizedBox(height: 30.0),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LogInPage(),
                             ),
+                          );
+                        },
+                        child: Text(
+                          'Zaten üye misiniz? Giriş Yap',
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            decoration: TextDecoration.underline,
                           ),
                         ),
-                      ],
-                    )
-
-                  ],
-                ),
+                      ),
+                    ],
+                  )
+                ],
               ),
             ),
           ),
         ),
+      ),
     );
   }
 
