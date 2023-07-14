@@ -114,4 +114,16 @@ final List<MenuCategory> categories = [
     MenuItem('Ayran', '10 TL'),
   ]),
   //SICAK İÇECEKLER EKLENECEK
+  MenuCategory(category: 'Sıcak İçecekler', image: 'assets/images/sicakicecekler.jpg', items: [
+    MenuItem('Çay Bardak', '6 TL'),
+    MenuItem('Çay Fincan', '10 TL'),
+    MenuItem('Nescafe', '25 TL'),
+    MenuItem('Türk Kahvesi', '22 TL'),
+    MenuItem('Salep', '25 TL'),
+    MenuItem('Cappucino', '25 TL'),
+    MenuItem('Sıcak Çikolata', '25 TL'),
+    MenuItem('Espresso', '25 TL'),
+    MenuItem('Bitki Çayları', '12 TL'),
+    MenuItem('Mocca', '25 TL'),
+  ]),
 ];
