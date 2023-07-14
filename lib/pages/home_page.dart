@@ -20,8 +20,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
-
-
   @override
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.43;
@@ -34,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       key: _scaffold,
-      drawer: DrawerMenu(),
+      drawer: const DrawerMenu(),
       appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: drawerOpen),
       body: ListView(
           shrinkWrap: true,
@@ -54,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 8.0),
+                  const SizedBox(height: 8.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -106,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 12.0),
+                  const SizedBox(height: 12.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -172,7 +170,7 @@ class CustomCard extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
 
-  const CustomCard({
+  const CustomCard({super.key,
     required this.image,
     required this.text,
     required this.onPressed,
@@ -215,7 +213,7 @@ class CustomCard extends StatelessWidget {
                 child: Center(
                   child: Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Colors.black,

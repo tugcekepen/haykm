@@ -54,23 +54,23 @@ class _LogInPageState extends State<LogInPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Center(
+                    const Center(
                       child: Text(
-                        "E-Posta ile Giriş Yapın",
+                        "Kullanıcı Adı veya E-Posta ile Giriş Yapın",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     buildTextField(
                       focusNode: _usernameFocusNode,
                       controller: _userNameControllerL,
-                      labelText: 'Kullanıcı Adı',
+                      labelText: 'Kullanıcı Adı / E-Mail',
                       prefixIcon: Icons.person_outline,
                       maxLength: 20,
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     buildPasswordFieldL(
                       focusNode: _passwordFocusNode,
                       controller: _passwordControllerL,
@@ -85,12 +85,12 @@ class _LogInPageState extends State<LogInPage> {
                       },
                       maxLength: 8,
                     ),
-                    SizedBox(height: 10.0),
+                    const SizedBox(height: 10.0),
                     TextButton(
-                      child: Text("Şifremi Unuttum"),
+                      child: const Text("Şifremi Unuttum"),
                       onPressed: () {},
                     ),
-                    SizedBox(height: 30.0),
+                    const SizedBox(height: 30.0),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -106,7 +106,7 @@ class _LogInPageState extends State<LogInPage> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => MyHomePage(),
+                              builder: (context) => const MyHomePage(),
                             ),
                           );
                         } else {

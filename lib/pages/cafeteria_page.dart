@@ -22,7 +22,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffold,
-      drawer: DrawerMenu(),
+      drawer: const DrawerMenu(),
       appBar: CustomAppBar(scaffold: _scaffold, title: "AtaKafe Menü", icon: Icons.menu, onIconPressed: drawerOpen),
       body: GridView.builder(
         padding: EdgeInsets.all(16.0),
@@ -65,7 +65,7 @@ class _CafeteriaPage extends State<CafeteriaPage>{
                     padding: EdgeInsets.all(8.0),
                     child: Text(
                       categories[index].category,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.bold,
                       ),
@@ -121,7 +121,7 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFFFFF3F3),
+                      color: const Color(0xFFFFF3F3),
                       borderRadius: BorderRadius.circular(8),
                     ),
                     margin: EdgeInsets.only(bottom: 5),
@@ -133,7 +133,7 @@ class _CategoryItemsScreenState extends State<CategoryItemsScreen> {
                           Text(widget.category.items[index].name),
                           Text(
                             widget.category.items[index].price,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 15,
                             ),

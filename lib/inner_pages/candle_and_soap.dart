@@ -15,6 +15,7 @@ class _CandleAndSoapState extends State<CandleAndSoap> {
     return const Scaffold(
       appBar: CustomAppBar(title: "Mum ve Sabun", icon: Icons.arrow_back_ios_new_outlined),
       body: SizedBox(
+        width: double.infinity,
         child: Column(
           children: [
             Text("Jel Mum Yapımı(120)"),
