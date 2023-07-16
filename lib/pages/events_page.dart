@@ -33,7 +33,6 @@ class _EventsPage extends State<EventsPage> {
           title: "Etkinlikler",
           icon: Icons.menu,
           onIconPressed: drawerOpen),
-<<<<<<< HEAD
       //body: ListView.builder(
       //  itemCount: events.length,
       //  itemBuilder: (BuildContext context, int index){
@@ -51,25 +50,6 @@ class _EventsPage extends State<EventsPage> {
       //    );
       //  },
       //),
-=======
-      body: ListView.builder(
-        itemCount: events.length,
-        itemBuilder: (BuildContext context, int index){
-          Events event = Events(event[index]);
-          return ListTile(
-            title: Center(
-              child: Text(event.title), // Etkinlik başlığını görüntüleyin
-            ),
-            leading: event.image != null ? Row(
-              children: [
-                Image.network(event.image!),
-              ]
-
-            ) : null,
-          );
-        },
-      ),
->>>>>>> b9207a92f2cece9a8cc850f853a6cb44cdc0cc61
       bottomNavigationBar: BottomNavi(context, 4),
     );
   }
