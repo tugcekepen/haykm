@@ -14,16 +14,16 @@ class CafeteriaPage extends StatefulWidget {
 class _CafeteriaPage extends State<CafeteriaPage>{
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
-  void drawerOpen() {
-    _scaffold.currentState?.openDrawer();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffold,
       drawer: const DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "AtaKafe Menü", icon: Icons.menu, onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "AtaKafe Menü", icon: Icons.menu, onIconPressed: (){
+        setState(() {
+          _scaffold.currentState?.openDrawer();
+        });
+      }),
       body: GridView.builder(
         padding: EdgeInsets.all(16.0),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

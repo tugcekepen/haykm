@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/drawer_menu.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/sgiss_page.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/ad_design.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/art_design.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/beauty_and_hair.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/candle_and_soap.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/child_develop.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/cooking.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/foreign_lang.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/graph_anim_photo.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/information_technologies.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/jewelry.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/pastry.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/patient_elderly_care.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/radio_tv.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/technical_service.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/wood.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/sgiss_page.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/ad_design.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/art_design.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/beauty_and_hair.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/candle_and_soap.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/child_develop.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/cooking.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/foreign_lang.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/graph_anim_photo.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/information_technologies.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/jewelry.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/pastry.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/patient_elderly_care.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/radio_tv.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/technical_service.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/wood.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
@@ -30,10 +30,6 @@ class CoursesPage extends StatefulWidget {
 class _CoursesPage extends State<CoursesPage> {
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
-  void drawerOpen() {
-    _scaffold.currentState?.openDrawer();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +39,11 @@ class _CoursesPage extends State<CoursesPage> {
           scaffold: _scaffold,
           title: "Kurslar",
           icon: Icons.menu,
-          onIconPressed: drawerOpen),
+          onIconPressed: (){
+            setState(() {
+              _scaffold.currentState?.openDrawer();
+            });
+          }),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -253,6 +253,20 @@ class KurslarKategoriButon extends StatelessWidget {
             onPressed: function!,
             child: Text(title)),
       ),
+    );
+  }
+}
+
+class ApplyCourse extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        elevation: 5,
+        shape: StadiumBorder(),
+      ),
+        onPressed: () {},
+        child: Text("Kurslara Başvur")
     );
   }
 }

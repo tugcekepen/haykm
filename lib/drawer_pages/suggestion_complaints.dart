@@ -22,10 +22,6 @@ class _SuggestionPageState extends State<SuggestionPage> {
   final _formKey = GlobalKey<FormState>();
   String? selectedImageName;
 
-  void drawerOpen() {
-    _scaffold.currentState?.openDrawer();
-  }
-
   Future<void> _getImage(ImageSource source) async {
     final picker = ImagePicker();
     final pickedImage = await picker.pickImage(source: source);
@@ -49,11 +45,9 @@ class _SuggestionPageState extends State<SuggestionPage> {
       child: Scaffold(
         key: _scaffold,
         drawer: DrawerMenu(),
-        appBar: CustomAppBar(
-            scaffold: _scaffold,
+        appBar:  const CustomAppBar(
             title: "Öneri ve Şikayetleriniz",
-            icon: Icons.menu,
-            onIconPressed: drawerOpen),
+            icon: Icons.arrow_back_ios_new_outlined),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(

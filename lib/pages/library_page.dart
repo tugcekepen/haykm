@@ -13,16 +13,16 @@ class LibraryPage extends StatefulWidget {
 class _LibraryPage extends State<LibraryPage>{
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
-  void drawerOpen() {
-    _scaffold.currentState?.openDrawer();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Kütüphane",icon: Icons.menu, onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Kütüphane",icon: Icons.menu, onIconPressed: (){
+        setState(() {
+          _scaffold.currentState?.openDrawer();
+        });
+      }),
       body: Column(
         children: [
           Expanded(

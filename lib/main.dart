@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
 
   const MyApp({Key? key, required this.theme}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: MyHomePage(), theme: theme,

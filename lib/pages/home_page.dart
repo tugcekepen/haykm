@@ -24,16 +24,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final double imageSize = MediaQuery.of(context).size.width * 0.43;
 
-    void drawerOpen() {
-      setState(() {
-        _scaffold.currentState?.openDrawer();
-      });
-    }
-
     return Scaffold(
       key: _scaffold,
       drawer: const DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: drawerOpen),
+      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: (){
+        setState(() {
+          _scaffold.currentState?.openDrawer();
+        });
+      }),
       body: ListView(
           shrinkWrap: true,
           children: [

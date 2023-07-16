@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/app_bar.dart';
+import '../../components/app_bar.dart';
 
 class RadioTv extends StatefulWidget {
   const RadioTv({super.key});
