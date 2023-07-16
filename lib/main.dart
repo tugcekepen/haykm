@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:json_theme/json_theme.dart';
-
-import 'package:flutter/services.dart'; // For rootBundle
+import 'package:flutter/services.dart';
+import 'package:kutuphane_masa_takibi/data/courses_items.dart';
+import 'package:kutuphane_masa_takibi/pages/courses_page.dart';
 import 'dart:convert';
-
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 
 void main() async {

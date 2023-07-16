@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/data/courses_items.dart';
 import '../../components/app_bar.dart';
-import '../apply_couse_form.dart';
+import '../apply_course_form.dart';
 
 class SgissPage extends StatefulWidget {
   const SgissPage({super.key});

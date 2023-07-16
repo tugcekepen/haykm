@@ -1,4 +1,3 @@
-
 Map<String, int> SgissItems = {
   "Görüntü ve Ses Sistemleri Elemanları": 2584,
   "Seslendirme ve Işıklandırma Sistemleri Kurulum, Bakım ve Onarımcısı":542,
@@ -18,4 +17,8 @@ Map<String, int> AdDesignItems = {
   "Fotoğraf Baskı Operatörü":2352,
   "Yayın Grafiği": 0,
 };
+
+Map<String, int> items = {};
+
+
 

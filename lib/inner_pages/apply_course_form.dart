@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/components/app_bar.dart';
+import 'package:kutuphane_masa_takibi/data/courses_items.dart';
+import 'package:kutuphane_masa_takibi/pages/courses_page.dart';
 
 class ApplyCourseForm extends StatefulWidget {
-
-
   const ApplyCourseForm({Key? key}) : super(key: key);
 
   @override
@@ -38,6 +38,35 @@ class _ApplyCourseFormState extends State<ApplyCourseForm> {
     setState(() {
       selectedOgrenim = value!;
     });
+  }
+
+  List<bool> checkboxValues = List.filled(items.length, false);
+
+  List<Widget> buildCourseCheckboxes() {
+    List<Widget> checkboxes = [];
+    for (int i = 0; i < items.length; i++) {
+      checkboxes.add(
+        Row(
+          children: [
+            Expanded(
+              child: Checkbox(
+                value: checkboxValues[i],
+                onChanged: (bool? value) {
+                  setState(() {
+                    checkboxValues[i] = value!;
+                  });
+                },
+              ),
+            ),
+            Expanded(
+              flex: 9,
+              child: Text(items.keys.toList()[i]),
+            ),
+          ],
+        ),
+      );
+    }
+    return checkboxes;
   }
 
   void _handleTap() {
@@ -76,7 +105,7 @@ class _ApplyCourseFormState extends State<ApplyCourseForm> {
                   height: 5,
                   color: Color(0xFFCE0D44),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Container(
@@ -86,57 +115,64 @@ class _ApplyCourseFormState extends State<ApplyCourseForm> {
                       children: [
                         Text(
                           "Öğrencinin :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         ApplyFormFields(
-                            tcNoController: adSoyadController,
+                            controller: adSoyadController,
                             label: "Adı Soyadı"),
                         ApplyFormFields(
-                          tcNoController: tcNoController,
+                          controller: tcNoController,
                           label: "Tc Numarası",
                           keyType: TextInputType.number,
                           length: 11,
                         ),
                         ApplyFormFields(
-                          tcNoController: ebeveynController,
+                          controller: ebeveynController,
                           label: "Baba Adı - Anne Adı",
                           hint: "Ahmet - Ayşe",
                         ),
                         ApplyFormFields(
-                          tcNoController: dogumController,
+                          controller: dogumController,
                           label: "Doğum Yeri ve Tarihi",
                           hint: "Samsun - 01.01.1993",
                           keyType: TextInputType.datetime,
                         ),
                         ApplyFormFields(
-                            tcNoController: evAdresiController,
+                            controller: evAdresiController,
                             label: "Ev Adresi"),
                         ApplyFormFields(
-                            tcNoController: isAdresiController,
+                            controller: isAdresiController,
                             label: "İş Adresi"),
                         ApplyFormFields(
-                          tcNoController: telNoConroller,
+                          controller: telNoConroller,
                           label: "Telefon Numarası",
                           length: 11,
                           hint: "05...",
                           keyType: TextInputType.number,
                         ),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           children: [
                             Expanded(
-                                flex: 2,
+                                flex: 4,
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     "Öğrenim Durumu",
-                                    style: TextStyle(fontSize: 16),
+                                    style: TextStyle(fontSize: 15),
                                   ),
                                 )),
                             Expanded(
+                              flex: 3,
                               child: DropdownButton<String>(
+                                icon: Icon(Icons.keyboard_arrow_down),
+                                alignment: Alignment.bottomRight,
                                 value: selectedOgrenim,
                                 onChanged: handleOgrenimChange,
                                 items: <String>[
@@ -155,8 +191,11 @@ class _ApplyCourseFormState extends State<ApplyCourseForm> {
                           ],
                         ),
                         ApplyFormFields(
-                            tcNoController: meslekConroller,
+                            controller: meslekConroller,
                             label: "Halen Çalışmakta Olduğu İş"),
+                        const SizedBox(
+                          height: 10,
+                        ),
                         Row(
                           children: [
                             Expanded(
@@ -178,24 +217,34 @@ class _ApplyCourseFormState extends State<ApplyCourseForm> {
                             ),
                           ],
                         ),
-                        Text(
-                          "Kurslar :",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
-
-                        SizedBox(height: 16),
+                        Text(
+                          "Kurslar :",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 15),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        if(course_page>0 && course_page<17)
+                          ...buildCourseCheckboxes(),
                         Center(
+                          heightFactor: 2,
                           child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              elevation: 5
+                            ),
                             onPressed: () {
-                              if (_formKey.currentState!.validate()) {}
+                              if (_formKey.currentState!.validate()) {
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => CoursesPage()));
+                                _formKey.currentState!.reset();
+                              }
                             },
-                            child: Text('Formu Gönder'),
+                            child: Text('Başvuru Formunu Gönder'),
                           ),
                         ),
-
                       ],
                     ))
               ],
@@ -210,14 +259,14 @@ class _ApplyCourseFormState extends State<ApplyCourseForm> {
 class ApplyFormFields extends StatelessWidget {
   const ApplyFormFields({
     super.key,
-    required this.tcNoController,
+    required this.controller,
     this.length,
     this.keyType,
     required this.label,
     this.hint,
   });
 
-  final TextEditingController tcNoController;
+  final TextEditingController controller;
   final int? length;
   final TextInputType? keyType;
   final String label;
@@ -230,9 +279,10 @@ class ApplyFormFields extends StatelessWidget {
       child: TextFormField(
         maxLength: length,
         keyboardType: keyType,
-        controller: tcNoController,
+        controller: controller,
         decoration: InputDecoration(
             labelText: label,
+            labelStyle: TextStyle(fontSize: 14),
             hintText: hint,
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFFCE0D44)),
@@ -249,7 +299,13 @@ class ApplyFormFields extends StatelessWidget {
   }
 }
 
-class ApplyCourseButton extends StatelessWidget {
+class ApplyCourseButton extends StatefulWidget {
+  @override
+  State<ApplyCourseButton> createState() => _ApplyCourseButtonState();
+}
+
+class _ApplyCourseButtonState extends State<ApplyCourseButton> {
+
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -258,6 +314,18 @@ class ApplyCourseButton extends StatelessWidget {
           shape: StadiumBorder(),
         ),
         onPressed: () {
+          setState(() {
+            switch(course_page){
+              case 1:
+                items = SgissItems;
+                break;
+              case 9:
+                items = AdDesignItems;
+                break;
+            }
+          });
+          print(course_page);
+          print(items);
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => ApplyCourseForm()));
         },
@@ -267,4 +335,3 @@ class ApplyCourseButton extends StatelessWidget {
         ));
   }
 }
-

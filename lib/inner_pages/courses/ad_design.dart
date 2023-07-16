@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../components/app_bar.dart';
 import '../../data/courses_items.dart';
-import '../apply_couse_form.dart';
+import '../apply_course_form.dart';
 
 String course_page = "Reklam Tasarımı";
 
