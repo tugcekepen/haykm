@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
@@ -15,9 +13,9 @@ class EventsPage extends StatefulWidget {
 class _EventsPage extends State<EventsPage> {
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
-  List<String> events = [
-    "Stajyer Öğrencilerle Buluştuk", image: asd
-    "s",
+  List<Events> events = [
+    Events("Stajyer Öğrencilerle Buluştuk", image: 'assets/images/sicakicecekler.jpg'),
+    Events("s", image: 'assets/images/meşrubatlar.jpg'),
     //İSTEDİĞİN KADAR EKLE
   ];
 
@@ -38,7 +36,17 @@ class _EventsPage extends State<EventsPage> {
       body: ListView.builder(
         itemCount: events.length,
         itemBuilder: (BuildContext context, int index){
+          Events event = Events(event[index]);
           return ListTile(
+            title: Center(
+              child: Text(event.title), // Etkinlik başlığını görüntüleyin
+            ),
+            leading: event.image != null ? Row(
+              children: [
+                Image.network(event.image!),
+              ]
+
+            ) : null,
           );
         },
       ),
