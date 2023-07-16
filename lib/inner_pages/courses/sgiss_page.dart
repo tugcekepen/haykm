@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kutuphane_masa_takibi/data/courses_items.dart';
 import '../../components/app_bar.dart';
-import '../../pages/courses_page.dart';
+import '../apply_couse_form.dart';
 
 class SgissPage extends StatefulWidget {
   const SgissPage({super.key});
@@ -62,7 +62,7 @@ class _SgissPageState extends State<SgissPage> {
               ),
             Padding(
               padding: EdgeInsets.only(left:20, right: 20, bottom: 25),
-              child: ApplyCourse(),
+              child: ApplyCourseButton(),
             )
           ],
         ),

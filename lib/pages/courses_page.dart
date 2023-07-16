@@ -39,7 +39,7 @@ class _CoursesPage extends State<CoursesPage> {
           scaffold: _scaffold,
           title: "Kurslar",
           icon: Icons.menu,
-          onIconPressed: (){
+          onIconPressed: () {
             setState(() {
               _scaffold.currentState?.openDrawer();
             });
@@ -247,26 +247,11 @@ class KurslarKategoriButon extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Center(
         child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            elevation: 5
-          ),
+            style: ElevatedButton.styleFrom(
+                elevation: 5, fixedSize: Size(330, 40)),
             onPressed: function!,
-            child: Text(title)),
+            child: Text(title, style: TextStyle(fontSize: 15),)),
       ),
-    );
-  }
-}
-
-class ApplyCourse extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        elevation: 5,
-        shape: StadiumBorder(),
-      ),
-        onPressed: () {},
-        child: Text("Kurslara Başvur")
     );
   }
 }

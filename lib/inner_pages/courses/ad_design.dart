@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../components/app_bar.dart';
 import '../../data/courses_items.dart';
-import '../../pages/courses_page.dart';
+import '../apply_couse_form.dart';
+
+String course_page = "Reklam Tasarımı";
 
 class AdDesign extends StatefulWidget {
   const AdDesign({super.key});
@@ -61,7 +63,7 @@ class _AdDesignState extends State<AdDesign> {
             ),
             Padding(
               padding: EdgeInsets.only(left:20, right: 20, bottom: 25),
-              child: ApplyCourse(),
+              child: ApplyCourseButton(),
             )
           ],
         ),
