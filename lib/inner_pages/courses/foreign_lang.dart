@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../components/app_bar.dart';
+import '../../components/app_bar.dart';
 
 class ForeignLang extends StatefulWidget {
   const ForeignLang({super.key});

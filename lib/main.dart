@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:json_theme/json_theme.dart';
-
-import 'package:flutter/services.dart'; // For rootBundle
+import 'package:flutter/services.dart';
+import 'package:kutuphane_masa_takibi/data/courses_items.dart';
+import 'package:kutuphane_masa_takibi/pages/courses_page.dart';
 import 'dart:convert';
-
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 
 void main() async {
@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
 
   const MyApp({Key? key, required this.theme}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(home: MyHomePage(), theme: theme,

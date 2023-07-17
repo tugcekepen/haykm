@@ -132,7 +132,7 @@
     "isDense": false
   },
   "materialTapTargetSize": "shrinkWrap",
-  "platform": "windows",
+  "platform": "android",
   "primaryColor": "#ffbe003e",
   "primaryColorDark": "#ff1976d2",
   "primaryColorLight": "#ffbbdefb",

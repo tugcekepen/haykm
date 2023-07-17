@@ -3,7 +3,6 @@ import 'package:kutuphane_masa_takibi/drawer_pages/suggestion_complaints.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
 import 'package:kutuphane_masa_takibi/drawer_pages/mybooks_page.dart';
 import 'package:kutuphane_masa_takibi/pages/profile_page.dart';
-import 'package:kutuphane_masa_takibi/pages/signin.dart';
 import '../pages/home_page.dart';
 import 'info_card.dart';
 
@@ -44,7 +43,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignInPage(),
+                      builder: (context) => LogInPage(),
                     ),
                   );
                 } else if (isLogin!) {
@@ -65,7 +64,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignInPage(),
+                      builder: (context) => LogInPage(),
                     ),
                   );
                 } else if (isLogin!) {}
@@ -79,7 +78,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignInPage(),
+                      builder: (context) => LogInPage(),
                     ),
                   );
                 } else if (isLogin!) {
@@ -98,7 +97,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignInPage(),
+                      builder: (context) => LogInPage(),
                     ),
                   );
                 } else if (isLogin!) {}
@@ -134,27 +133,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
               color: Theme.of(context).dividerColor,
               height: 2,
             ),
-            Padding(
-              padding: EdgeInsets.only(top: 15, bottom: 15),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text("Bize Ulaşabilirsiniz", style: TextStyle(
-                      color: Colors.grey[700]!.withOpacity(0.7)
-                    ),),
-                    Text("05551112233", style: TextStyle(
-                        color: Colors.grey[700]!.withOpacity(0.8)
-                    ),)
-                  ],
-                ),
-              ),
-            Padding(
-              padding: const EdgeInsets.only(),
-              child: Divider(
-                color: Theme.of(context).dividerColor,
-                height: 2,
-              ),
-            ),
             if (isLogin!)
               DrawerListItem(
                   listTitle: "Çıkış Yap",
@@ -168,6 +146,22 @@ class _DrawerMenuState extends State<DrawerMenu> {
                       MaterialPageRoute(builder: (context) => MyHomePage()),
                     );
                   }),
+            Padding(
+              padding: EdgeInsets.only(top: 15, bottom: 15),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    "Bize Ulaşabilirsiniz",
+                    style: TextStyle(color: Colors.grey[700]!.withOpacity(0.7)),
+                  ),
+                  Text(
+                    "05551112233",
+                    style: TextStyle(color: Colors.grey[700]!.withOpacity(0.8)),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),

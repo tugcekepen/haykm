@@ -34,6 +34,7 @@ class _EventsPage extends State<EventsPage> {
           title: "Etkinlikler",
           icon: Icons.menu,
           onIconPressed: drawerOpen),
+<<<<<<< HEAD
       body: ListView.builder(
         itemCount: events.length,
         itemBuilder: (BuildContext context, int index){
@@ -69,6 +70,25 @@ class _EventsPage extends State<EventsPage> {
           );
         },
       ),
+=======
+      //body: ListView.builder(
+      //  itemCount: events.length,
+      //  itemBuilder: (BuildContext context, int index){
+          //Events event = Events(event[index]);
+          //return ListTile(
+          //  title: Center(
+          //    child: Text(event.title), // Etkinlik başlığını görüntüleyin
+          //  ),
+          //  leading: event.image != null ? Row(
+          //      children: [
+          //        Image.network(event.image!),
+          //      ]
+
+          //  ) : null,
+      //    );
+      //  },
+      //),
+>>>>>>> 29493990d023dc5fabddbb29da740c3703119bee
       bottomNavigationBar: BottomNavi(context, 4),
     );
   }
@@ -79,6 +99,7 @@ class Events {
   final String? image;
 
   Events(this.title, {this.image});
+<<<<<<< HEAD
 }
 
 
@@ -111,4 +132,6 @@ class EventScreen extends StatelessWidget {
       ),
     );
   }
+=======
+>>>>>>> 29493990d023dc5fabddbb29da740c3703119bee
 }
