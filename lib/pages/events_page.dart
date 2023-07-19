@@ -5,7 +5,7 @@ import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
 
 class EventsPage extends StatefulWidget {
-  const EventsPage({super.key});
+  const Even tsPage({super.key});
 
   @override
   _EventsPage createState() => _EventsPage();
