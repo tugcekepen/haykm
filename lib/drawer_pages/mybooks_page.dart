@@ -32,10 +32,11 @@ class _MyBooksState extends State<MyBooksPage> {
             ),
           )).toList(),
           options: CarouselOptions(
-            autoPlay: true,
+            autoPlay: false,
             enlargeCenterPage: true,
             enableInfiniteScroll: true,
             viewportFraction: 1,
+
           ))
 
 
