@@ -1,7 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
-import '../components/bottom_navi.dart';
 import '../components/drawer_menu.dart';
+import '../data/mybooks.dart';
 
 class MyBooksPage extends StatefulWidget {
   const MyBooksPage({Key? key}) : super(key: key);
@@ -23,16 +24,21 @@ class _MyBooksState extends State<MyBooksPage> {
       key: _scaffold,
       drawer: DrawerMenu(),
       appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: drawerOpen),
-      body: Column(
-        children: [
-          Expanded(
+      body: CarouselSlider(
+          items: imgList.map( (item) => Container(
+            padding: EdgeInsets.all(5),
             child: Center(
-              child: Text("Kitaplarım"),
+              child: Image.asset(item, fit: BoxFit.cover,),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavi(context, 4),
+          )).toList(),
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+            enableInfiniteScroll: true,
+            viewportFraction: 1,
+          ))
+
+
     );
   }
 }

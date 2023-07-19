@@ -18,6 +18,7 @@ dependencies:
   flutter_animated_icons: ^1.0.1
   curved_navigation_bar: ^1.0.3
   image_picker: ^1.0.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
