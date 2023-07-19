@@ -15,8 +15,8 @@ class _EventsPage extends State<EventsPage> {
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
   List<Events> events = [
-    Events("Stajyer Öğrencilerle Buluştuk", image: 'assets/images/sicakicecekler.jpg', description: "jglhjg"),
-    Events("s", image: 'assets/images/mesrubat.jpg'),
+    Events("Stajyer Öğrencilerle Buluştuk", image: 'assets/images/sicakicecekler.jpg', description: "yaser kalkan asdasd"),
+    Events("s", image: 'assets/images/mesrubat.jpg', description: "tuğçe keten"),
     Events("Şok Şok Şok", image: 'assets/images/menemen.jpg')
     //İSTEDİĞİN KADAR EKLE
   ];
@@ -24,7 +24,6 @@ class _EventsPage extends State<EventsPage> {
   void drawerOpen() {
     _scaffold.currentState?.openDrawer();
   }
-
   
 
   @override
@@ -67,7 +66,7 @@ class _EventsPage extends State<EventsPage> {
                     ),
                   ),
                   if (events[index].description != null)
-                    getShortDescription(),
+                    Text(events[index].getShortDescription(events[index].description!)),
                     Padding(
                         padding: EdgeInsets.all(8.0),
                       child: Text(
@@ -93,13 +92,13 @@ class Events {
   final String? description;
 
   Events(this.title, {this.image, this.description, });
-
-  String getShortDescription() {
+  String getShortDescription(String? description) {
     final int maxLength = 10;
-    if (description!.length <= maxLength) {
-      return description!;
+    if (description == null) return ''; // Eğer description boş ise boş bir string döndürüyoruz.
+    if (description.length <= maxLength) {
+      return description;
     } else {
-      String shortDesc = description!.substring(0, maxLength);
+      String shortDesc = description.substring(0, maxLength);
       if (shortDesc[maxLength - 1] != '\n') {
         int lastNewline = shortDesc.lastIndexOf('\n', maxLength - 1);
         shortDesc = shortDesc.substring(0, lastNewline + 1);
@@ -107,7 +106,7 @@ class Events {
       return shortDesc;
     }
   }
-}
+  }
 
 class EventScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
