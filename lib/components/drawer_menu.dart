@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kutuphane_masa_takibi/drawer_pages/about_us_page.dart';
 import 'package:kutuphane_masa_takibi/drawer_pages/suggestion_complaints.dart';
 import 'package:kutuphane_masa_takibi/pages/login.dart';
 import 'package:kutuphane_masa_takibi/drawer_pages/mybooks_page.dart';
@@ -109,7 +110,12 @@ class _DrawerMenuState extends State<DrawerMenu> {
             DrawerListItem(
               icon: Icons.info_outline,
               listTitle: "Hakkımızda",
-              listFunction: () {},
+              listFunction: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutUsPage()),
+                );
+              },
             ),
             DrawerListItem(
               icon: Icons.credit_card_outlined,
