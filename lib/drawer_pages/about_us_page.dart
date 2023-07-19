@@ -206,13 +206,14 @@ class AboutUsPage extends StatelessWidget {
                           '\nornek_genclikmerkezi@mail.com',
                         ),
                         SizedBox(
-                          height: 25,
+                          height: 24,
                         ),
                         Text(
                           '\n05551112233',
                         ),
                         SizedBox(
-                          height: 30,
+                          height: 31
+                          ,
                         ),
                         Text(
                           'Cumhuriyet, 45. Sk. No:11, 55200 Atakum/Samsun',
