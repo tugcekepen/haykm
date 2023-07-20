@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
 import '../components/drawer_menu.dart';
 import '../data/mybooks.dart';
+import '../inner_pages/to_take_list.dart';
 
 class MyBooksPage extends StatefulWidget {
   const MyBooksPage({Key? key}) : super(key: key);
@@ -14,8 +15,70 @@ class MyBooksPage extends StatefulWidget {
 class _MyBooksState extends State<MyBooksPage> {
   final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
 
-  void drawerOpen() {
-    _scaffold.currentState?.openDrawer();
+  int _current = 0;
+
+  void onPageChanged(int index, CarouselPageChangedReason reason) {
+    setState(() {
+      _current = index;
+    });
+  }
+
+  final List<Widget> imageSliders = imgList.entries
+      .map((entry) => Container(
+            margin: EdgeInsets.all(5.0),
+            child: ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              child: Stack(
+                children: <Widget>[
+                  Image.asset(entry.key, fit: BoxFit.fitHeight),
+                  Positioned(
+                    bottom: 0.0,
+                    left: 0.0,
+                    right: 0.0,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            Color(0xFFCE0D44),
+                            Color.fromARGB(0, 0, 0, 0)
+                          ],
+                          begin: Alignment.bottomCenter,
+                          end: Alignment.topCenter,
+                        ),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                          vertical: 10.0, horizontal: 20.0),
+                      child: Text(
+                        entry.value,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ))
+      .toList();
+
+  final List<String> imagePaths = imgList.keys.toList();
+
+  String getDeliveryDate(String imagePath) {
+    String deliveryDate = "";
+    if (imagePath.contains("livaneli")) {
+      deliveryDate = "28.07.2023";
+    } else if (imagePath.contains("hayvan_ciftligi")) {
+      deliveryDate = "05.08.2023";
+    } else if (imagePath.contains("kucuk_prens")) {
+      deliveryDate = "03.08.2023";
+    } else if (imagePath.contains("siyasi_dinler")) {
+      deliveryDate = "29.07.2023";
+    }
+    return deliveryDate;
   }
 
   @override
@@ -23,23 +86,71 @@ class _MyBooksState extends State<MyBooksPage> {
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi",icon: Icons.menu, onIconPressed: drawerOpen),
-      body: CarouselSlider(
-          items: imgList.map( (item) => Container(
-            padding: EdgeInsets.all(5),
-            child: Center(
-              child: Image.asset(item, fit: BoxFit.cover,),
+      appBar: const CustomAppBar(
+          title: "Kitaplarım", icon: Icons.arrow_back_ios_new_outlined),
+      body: ListView(shrinkWrap: true, children: [
+        Padding(
+          padding: EdgeInsets.only(left: 15.0, bottom: 15, top: 8),
+          child: Text(
+            "Ödünç aldıklarım".toUpperCase(),
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
             ),
-          )).toList(),
-          options: CarouselOptions(
-            autoPlay: false,
-            enlargeCenterPage: true,
-            enableInfiniteScroll: true,
-            viewportFraction: 1,
-
-          ))
-
-
+          ),
+        ),
+        Divider(
+          color: Theme.of(context).dividerColor,
+          height: 2,
+        ),
+        Container(
+            padding: EdgeInsets.only(top: 10, bottom: 10),
+            width: MediaQuery.of(context).size.width * 0.45,
+            child: CarouselSlider(
+              options: CarouselOptions(
+                aspectRatio: 1.7,
+                viewportFraction: 0.45,
+                enlargeCenterPage: true,
+                enableInfiniteScroll: false,
+                initialPage: 2,
+                autoPlay: true,
+                onPageChanged: onPageChanged,
+              ),
+              items: imageSliders,
+            )),
+        Container(
+          padding: EdgeInsets.all(10.0),
+          child: Text(
+            "Teslim tarihi : ${getDeliveryDate(imagePaths[_current])}",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        Divider(
+          color: Theme.of(context).dividerColor,
+          height: 2,
+        ),
+        ListTile(
+          trailing: Icon(Icons.arrow_forward_ios),
+          title: Text(
+            "ALINACAKLAR LİSTESİ",
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ToTakeList()));
+          },
+        ),
+        Divider(
+          color: Theme.of(context).dividerColor,
+          height: 2,
+        ),
+      ]),
     );
   }
 }
