@@ -36,7 +36,7 @@ class _MyBooksState extends State<MyBooksPage> {
                     left: 0.0,
                     right: 0.0,
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
                             Color(0xFFCE0D44),
@@ -46,14 +46,14 @@ class _MyBooksState extends State<MyBooksPage> {
                           end: Alignment.topCenter,
                         ),
                       ),
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                           vertical: 10.0, horizontal: 20.0),
                       child: Text(
                         entry.value,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 13.0,
+                          fontSize: 14.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -93,7 +93,7 @@ class _MyBooksState extends State<MyBooksPage> {
           padding: EdgeInsets.only(left: 15.0, bottom: 15, top: 8),
           child: Text(
             "Ödünç aldıklarım".toUpperCase(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16.0,
               fontWeight: FontWeight.bold,
             ),
@@ -108,7 +108,7 @@ class _MyBooksState extends State<MyBooksPage> {
             width: MediaQuery.of(context).size.width * 0.45,
             child: CarouselSlider(
               options: CarouselOptions(
-                aspectRatio: 1.7,
+                aspectRatio: 1.5,
                 viewportFraction: 0.45,
                 enlargeCenterPage: true,
                 enableInfiniteScroll: false,
@@ -124,18 +124,20 @@ class _MyBooksState extends State<MyBooksPage> {
             "Teslim tarihi : ${getDeliveryDate(imagePaths[_current])}",
             textAlign: TextAlign.center,
             style: TextStyle(
+              color: Theme.of(context).primaryColor.withOpacity(0.7),
               fontSize: 15.0,
               fontWeight: FontWeight.bold,
             ),
           ),
         ),
+        const SizedBox(height: 5,),
         Divider(
           color: Theme.of(context).dividerColor,
           height: 2,
         ),
         ListTile(
           trailing: Icon(Icons.arrow_forward_ios),
-          title: Text(
+          title: const Text(
             "ALINACAKLAR LİSTESİ",
             style: TextStyle(
               fontSize: 16.0,
