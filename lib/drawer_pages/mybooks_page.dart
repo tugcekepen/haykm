@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:kutuphane_masa_takibi/drawer_pages/favbooks_page.dart';
 import '../components/app_bar.dart';
 import '../components/drawer_menu.dart';
 import '../data/mybooks.dart';
@@ -146,6 +147,23 @@ class _MyBooksState extends State<MyBooksPage> {
           ),
           onTap: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => ToTakeList()));
+          },
+        ),
+        Divider(
+          color: Theme.of(context).dividerColor,
+          height: 2,
+        ),
+        ListTile(
+          trailing: Icon(Icons.arrow_forward_ios),
+          title: const Text(
+            "FAVORİ KİTAPLARIM",
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FavBooksPage()));
           },
         ),
         Divider(

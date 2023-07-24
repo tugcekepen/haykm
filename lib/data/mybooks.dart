@@ -1,3 +1,5 @@
+import '../models/book.dart';
+
 final Map<String,String> imgList = {
   "assets/images/livaneli.jpeg": "Balıkçı ve Oğlu",
   "assets/images/hayvan_ciftligi.jpg" : "Hayvan Çiftliği",
@@ -16,3 +18,5 @@ final Map<String, dynamic> toTakeList = {
     "Hayır Diyebilme Sanatı" : "Müthiş Psikoloji"
   }
 };
+
+final Map<String, dynamic> favoriteBooks = {};

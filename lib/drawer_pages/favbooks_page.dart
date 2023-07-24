@@ -1,33 +1,50 @@
 import 'package:flutter/material.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
-import '../components/drawer_menu.dart';
+import '../data/mybooks.dart';
+import '../models/book.dart';
 
-class MyBooksPage extends StatefulWidget {
-  const MyBooksPage({Key? key}) : super(key: key);
+class FavBooksPage extends StatefulWidget {
+  const FavBooksPage({Key? key}) : super(key: key);
 
   @override
-  State<MyBooksPage> createState() => _MyBooksState();
+  State<FavBooksPage> createState() => _FavBooksState();
 }
 
-class _MyBooksState extends State<MyBooksPage> {
-  final GlobalKey<ScaffoldState> _scaffold = GlobalKey<ScaffoldState>();
-
-  void drawerOpen() {
-    _scaffold.currentState?.openDrawer();
-  }
-
+class _FavBooksState extends State<FavBooksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffold,
-      drawer: DrawerMenu(),
-      appBar: CustomAppBar(scaffold: _scaffold, title: "Hasan Ali Yücel Kültür Merkezi", icon: Icons.menu, onIconPressed: drawerOpen),
+      appBar: CustomAppBar(
+          title: "Favori Kitaplarım", icon: Icons.arrow_back_ios_new_outlined),
       body: Column(
         children: [
           Expanded(
-            child: Center(
-              child: Text("Favori Kitaplarım"),
+            child: ListView.builder(
+              itemCount: favoriteBooks.length,
+              itemBuilder: (context, index) {
+                Book book = favoriteBooks[index];
+                return ListTile(
+                  title: Text(book.name),
+                  subtitle: Text(
+                    book.author,
+                    style:
+                    TextStyle(color: const Color(0xFFCE0D44).withOpacity(0.6)),
+                  ),
+                  trailing: IconButton(
+                    onPressed: () {
+                      setState(() {
+
+                      });
+                      print(favoriteBooks);
+                    },
+                    icon: const Icon(
+                      Icons.delete_outline,
+                      size: 20,
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         ],
@@ -36,3 +53,4 @@ class _MyBooksState extends State<MyBooksPage> {
     );
   }
 }
+
