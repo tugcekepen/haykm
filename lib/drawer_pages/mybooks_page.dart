@@ -86,7 +86,7 @@ class _MyBooksState extends State<MyBooksPage> {
     return Scaffold(
       key: _scaffold,
       drawer: DrawerMenu(),
-      appBar: const CustomAppBar(
+      appBar: CustomAppBar(
           title: "Kitaplarım", icon: Icons.arrow_back_ios_new_outlined),
       body: ListView(shrinkWrap: true, children: [
         Padding(
