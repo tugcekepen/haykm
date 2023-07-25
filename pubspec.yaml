@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sqflite: ^2.2.8+4
+  path: ^1.8.3
   cupertino_icons: ^1.0.2
   json_theme: ^6.0.2+3
   rive: ^0.7.16

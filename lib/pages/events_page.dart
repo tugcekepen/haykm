@@ -70,7 +70,7 @@ class _EventsPage extends State<EventsPage> {
                       Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
-                          events[index].description!.substring(0, eventMaxLength),
+                          events[index].description!.substring(0, eventMaxLength)+"...",
                           style: TextStyle(fontSize: 15),
                         ),
                       ),
