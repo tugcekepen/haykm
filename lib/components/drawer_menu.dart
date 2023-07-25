@@ -58,20 +58,6 @@ class _DrawerMenuState extends State<DrawerMenu> {
               },
             ),
             DrawerListItem(
-              icon: Icons.favorite_outline,
-              listTitle: "Favori Kitaplarım",
-              listFunction: () {
-                if (!isLogin!) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LogInPage(),
-                    ),
-                  );
-                } else if (isLogin!) {}
-              },
-            ),
-            DrawerListItem(
               icon: Icons.bookmark_border,
               listTitle: "Kitaplarım",
               listFunction: () {

@@ -165,61 +165,53 @@ class AboutUsPage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Row(
+              Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 19),
-                    child: Column(
-                      children: [
-                        Icon(
+                      padding: EdgeInsets.only(left: 12),
+                      child: ListTile(
+                        leading: Icon(
                           Icons.mail_outline,
                           color: Colors.black,
                           size: 35,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Icon(
+                        title: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              "ornek_genclikmerkezi@mail.com",
+                              style: TextStyle(fontSize: 13),
+                            )),
+                      )),
+                  Padding(
+                      padding: EdgeInsets.only(left: 12),
+                      child: ListTile(
+                        leading: Icon(
                           Icons.local_phone_outlined,
                           color: Colors.black,
                           size: 35,
                         ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Icon(
+                        title: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              "05551112233",
+                              style: TextStyle(fontSize: 13),
+                            )),
+                      )),
+                  Padding(
+                      padding: EdgeInsets.only(left: 12),
+                      child: ListTile(
+                        leading: Icon(
                           Icons.location_city,
                           color: Colors.black,
                           size: 35,
                         ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '\nornek_genclikmerkezi@mail.com',
-                        ),
-                        SizedBox(
-                          height: 25,
-                        ),
-                        Text(
-                          '\n05551112233',
-                        ),
-                        SizedBox(
-                          height: 30,
-                        ),
-                        Text(
-                          'Cumhuriyet, 45. Sk. No:11, 55200 Atakum/Samsun',
-                        ),
-                      ],
-                    ),
-                  ),
+                        title: Padding(
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text(
+                              "Cumhuriyet, 45. Sk. No:11, 55200 Atakum/Samsun",
+                              style: TextStyle(fontSize: 13),
+                            )),
+                      )),
                 ],
               ),
               SizedBox(height: 7),
