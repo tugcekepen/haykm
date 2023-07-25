@@ -84,6 +84,9 @@ class _LibraryPage extends State<LibraryPage> {
           const LibraryCategoryButton(
             title: "Şiir",
           ),
+          const SizedBox(
+            height: 13,
+          ),
         ],
       ),
       bottomNavigationBar: BottomNavi(context, 3),

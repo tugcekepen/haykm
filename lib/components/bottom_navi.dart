@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import '../drawer_pages/suggestion_complaints.dart';
 import '../pages/cafeteria_page.dart';
 import '../pages/courses_page.dart';
 import '../pages/events_page.dart';
 import '../pages/home_page.dart';
 import '../pages/library_page.dart';
-import '../pages/login.dart';
 
 Widget BottomNavi(BuildContext context, int currentIndex) {
   return BottomNavigationBar(
@@ -35,7 +33,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           ),
           activeIcon: Icon(
             Icons.play_lesson,
-            color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
+            color: Color(0xFFCE0D44),
             size: 30,
           ),
           label: "Kurslar"),
@@ -47,7 +45,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           ),
           activeIcon: Icon(
             Icons.restaurant_menu,
-            color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
+            color: Color(0xFFCE0D44),
             size: 30,
           ),
           label: "Kafe Menü"),
@@ -59,7 +57,7 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           ),
           activeIcon: Icon(
             Icons.my_library_books,
-            color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
+            color: Color(0xFFCE0D44),
             size: 30,
           ),
           label: "Kütüphane"),
@@ -71,26 +69,12 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
           ),
           activeIcon: Icon(
             Icons.event,
-            color: Color(0xFFCE0D44), // Aktif olduğunda kullanılacak renk
+            color: Color(0xFFCE0D44),
             size: 30,
           ),
           label: "Etkinlikler"),
     ],
     onTap: (currentIndex) {
-      if (!isLogin!) {
-        if (currentIndex == 0) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyHomePage()),
-            );
-            toDeleteFieldSC();
-        } else {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => LogInPage()),
-          );
-        }
-      } else if (isLogin!) {
         switch (currentIndex) {
           case 0:
             Navigator.push(
@@ -122,7 +106,6 @@ Widget BottomNavi(BuildContext context, int currentIndex) {
             );
             break;
         }
-      }
     },
   );
 }

@@ -22,7 +22,6 @@ class _ToTakeListState extends State<ToTakeList> {
         itemBuilder: (context, index) {
           final category = toTakeList.keys.elementAt(index);
           final books = toTakeList[category] as Map<String, String>;
-
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
