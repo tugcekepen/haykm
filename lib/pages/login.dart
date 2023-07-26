@@ -3,6 +3,8 @@ import 'package:kutuphane_masa_takibi/components/app_bar.dart';
 import 'package:kutuphane_masa_takibi/pages/home_page.dart';
 import 'package:kutuphane_masa_takibi/pages/signin.dart';
 
+import '../inner_pages/forgot_password.dart';
+
 TextEditingController _userNameControllerL = TextEditingController();
 TextEditingController _passwordControllerL = TextEditingController();
 
@@ -88,7 +90,7 @@ class _LogInPageState extends State<LogInPage> {
                     const SizedBox(height: 10.0),
                     TextButton(
                       child: const Text("Şifremi Unuttum"),
-                      onPressed: () {},
+                      onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassword())),
                     ),
                     const SizedBox(height: 30.0),
                     ElevatedButton(
