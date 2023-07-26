@@ -19,4 +19,5 @@ final Map<String, dynamic> toTakeList = {
   }
 };
 
-final Map<String, dynamic> favoriteBooks = {};
+final Map<String, dynamic> favoriteBooks = {
+};

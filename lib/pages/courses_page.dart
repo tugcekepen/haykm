@@ -145,7 +145,7 @@ class _CoursesPage extends State<CoursesPage> {
               },
             ),
             KurslarKategoriButon(
-              title: "Reklam Tasarım, Dijital baskı",
+              title: "Reklam Tasarım, Dijital Baskı",
               function: () {
                 course_page = 9;
                 print(course_page);
@@ -240,6 +240,9 @@ class _CoursesPage extends State<CoursesPage> {
                   ),
                 );
               },
+            ),
+            const SizedBox(
+              height: 13,
             ),
           ],
         ),
