@@ -4,20 +4,19 @@ import 'package:kutuphane_masa_takibi/inner_pages/apply_course_form.dart';
 
 import '../../components/app_bar.dart';
 
-class InfoTechno extends StatefulWidget {
-  const InfoTechno({super.key});
+class Hardwood extends StatefulWidget {
+  const Hardwood({super.key});
 
   @override
-  State<InfoTechno> createState() => _InfoTechnoState();
+  State<Hardwood> createState() => _HardwoodState();
 }
 
-class _InfoTechnoState extends State<InfoTechno> {
+class _HardwoodState extends State<Hardwood> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-          title: "Bilişim Teknolojileri",
-          icon: Icons.arrow_back_ios_new_outlined),
+          title: "Ahşap CNC", icon: Icons.arrow_back_ios_new_outlined),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -27,10 +26,10 @@ class _InfoTechnoState extends State<InfoTechno> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: InformationTechnologiesItems.length,
+                  itemCount: HardwoodItems.length,
                   itemBuilder: (context, index) {
-                    final item = InformationTechnologiesItems.keys.elementAt(index);
-                    final value = InformationTechnologiesItems.values.elementAt(index);
+                    final item = HardwoodItems.keys.elementAt(index);
+                    final value = HardwoodItems.values.elementAt(index);
                     return Container(
                       height: 50,
                       decoration: BoxDecoration(

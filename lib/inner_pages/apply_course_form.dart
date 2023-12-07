@@ -319,8 +319,50 @@ class _ApplyCourseButtonState extends State<ApplyCourseButton> {
               case 1:
                 items = SgissItems;
                 break;
+              case 2:
+                items = RadioTvItems;
+                break;
+              case 3:
+                items = BeautyAndHairItems;
+                break;
+              case 4:
+                items = ArtDesignItems;
+                break;
+              case 5:
+                items = CandleAndSoapItems;
+                break;
+              case 6:
+                items = InformationTechnologiesItems;
+                break;
+              case 7:
+                items = TechServiceItems;
+                break;
+              case 8:
+                items = GraphAnimPhotoItems;
+                break;  
               case 9:
                 items = AdDesignItems;
+                break;
+              case 10:
+                items = JewelryItems;
+                break;
+              case 11:
+                items = HardwoodItems;
+                break;
+              case 12:
+                items = ChildDevItems;
+                break;
+              case 13:
+                items = PatientElderlyCareItems;
+                break;
+              case 14:
+                items = CookeryItems;
+                break;
+              case 15:
+                items = PastryItems;
+                break;
+              case 16:
+                items = ForeignLangItems;
                 break;
             }
           });

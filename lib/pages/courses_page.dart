@@ -6,7 +6,7 @@ import 'package:kutuphane_masa_takibi/inner_pages/courses/art_design.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/beauty_and_hair.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/candle_and_soap.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/child_develop.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/courses/cooking.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/cookery.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/foreign_lang.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/graph_anim_photo.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/information_technologies.dart';
@@ -15,7 +15,7 @@ import 'package:kutuphane_masa_takibi/inner_pages/courses/pastry.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/patient_elderly_care.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/radio_tv.dart';
 import 'package:kutuphane_masa_takibi/inner_pages/courses/technical_service.dart';
-import 'package:kutuphane_masa_takibi/inner_pages/courses/wood.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/courses/hardwood.dart';
 import '../components/app_bar.dart';
 import '../components/bottom_navi.dart';
 
@@ -176,7 +176,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Wood(),
+                    builder: (context) => const Hardwood(),
                   ),
                 );
               },
@@ -212,7 +212,7 @@ class _CoursesPage extends State<CoursesPage> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const Cooking(),
+                    builder: (context) => const Cookery(),
                   ),
                 );
               },
@@ -271,7 +271,10 @@ class KurslarKategoriButon extends StatelessWidget {
             style: ElevatedButton.styleFrom(
                 elevation: 5, fixedSize: Size(330, 40)),
             onPressed: function!,
-            child: Text(title, style: TextStyle(fontSize: 15),)),
+            child: Text(
+              title,
+              style: TextStyle(fontSize: 15),
+            )),
       ),
     );
   }

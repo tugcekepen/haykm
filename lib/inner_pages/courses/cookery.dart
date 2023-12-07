@@ -4,20 +4,19 @@ import 'package:kutuphane_masa_takibi/inner_pages/apply_course_form.dart';
 
 import '../../components/app_bar.dart';
 
-class InfoTechno extends StatefulWidget {
-  const InfoTechno({super.key});
+class Cookery extends StatefulWidget {
+  const Cookery({super.key});
 
   @override
-  State<InfoTechno> createState() => _InfoTechnoState();
+  State<Cookery> createState() => _CookeryState();
 }
 
-class _InfoTechnoState extends State<InfoTechno> {
+class _CookeryState extends State<Cookery> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-          title: "Bilişim Teknolojileri",
-          icon: Icons.arrow_back_ios_new_outlined),
+          title: "Aşçılık", icon: Icons.arrow_back_ios_new_outlined),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -27,10 +26,10 @@ class _InfoTechnoState extends State<InfoTechno> {
                 child: ListView.builder(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
-                  itemCount: InformationTechnologiesItems.length,
+                  itemCount: CookeryItems.length,
                   itemBuilder: (context, index) {
-                    final item = InformationTechnologiesItems.keys.elementAt(index);
-                    final value = InformationTechnologiesItems.values.elementAt(index);
+                    final item = CookeryItems.keys.elementAt(index);
+                    final value = CookeryItems.values.elementAt(index);
                     return Container(
                       height: 50,
                       decoration: BoxDecoration(

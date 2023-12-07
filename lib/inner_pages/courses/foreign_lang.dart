@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:kutuphane_masa_takibi/data/courses_items.dart';
+import 'package:kutuphane_masa_takibi/inner_pages/apply_course_form.dart';
 
 import '../../components/app_bar.dart';
 
@@ -12,29 +14,56 @@ class ForeignLang extends StatefulWidget {
 class _ForeignLangState extends State<ForeignLang> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: CustomAppBar(title: "Yabancı Dil", icon: Icons.arrow_back_ios_new_outlined),
-      body: SizedBox(
-        width: double.infinity,
+      body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text("Osmanlıca"),
-            Text("İngilizce A1 (120)"),
-            Text("İngilizce A2 (160)"),
-            Text("Almanca A1 (120)"),
-            Text("Almanca A2 (160)"),
-            Text("Rusça A1 (120)"),
-            Text("Rusça A2 (160)"),
-            Text("Arapça A1 (120)"),
-            Text("Arapça A2 (160)"),
-            Text("Fransızca A1 (120)"),
-            Text("Fransızca A2 (160)"),
-            Text("Çince A1 (120)"),
-            Text("Çince A2 (160)"),
-            Text("Diğer"),
-
-        ],
-      ),
+            Container(
+                padding: EdgeInsets.all(16),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: ForeignLangItems.length,
+                  itemBuilder: (context, index) {
+                    final item = ForeignLangItems.keys.elementAt(index);
+                    final value = ForeignLangItems.values.elementAt(index);
+                    return Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      margin: EdgeInsets.only(bottom: 5),
+                      padding: EdgeInsets.all(3),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              item,
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                          if(value==0)
+                            Text("-",
+                              style: TextStyle(fontSize: 15),)
+                          else
+                            Text(
+                              '($value)',
+                              style: TextStyle(fontSize: 15),
+                            )
+                        ],
+                      ),
+                    );
+                  },
+                ),
+              ),
+            Padding(
+              padding: EdgeInsets.only(left:20, right: 20, bottom: 25),
+              child: ApplyCourseButton(),
+            )
+          ],
+        ),
       ),
     );
   }
