@@ -17,8 +17,7 @@ class _FavBooksState extends State<FavBooksPage> {
     return Scaffold(
       appBar: CustomAppBar(
           title: "Favori Kitaplarım", icon: Icons.arrow_back_ios_new_outlined),
-      body: SingleChildScrollView(
-        child: ListView.builder(
+      body: ListView.builder(
           shrinkWrap: true,
           itemCount: favoriteBooks?.length,
           itemBuilder: (context, index) {
@@ -63,7 +62,6 @@ class _FavBooksState extends State<FavBooksPage> {
             );
           },
         ),
-      ),
       bottomNavigationBar: BottomNavi(context, 4),
     );
   }

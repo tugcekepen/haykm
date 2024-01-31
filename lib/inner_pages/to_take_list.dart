@@ -15,8 +15,7 @@ class _ToTakeListState extends State<ToTakeList> {
     return Scaffold(
       appBar: const CustomAppBar(
           title: "Alınacak Kitaplar", icon: Icons.arrow_back_ios_new_outlined),
-      body: SingleChildScrollView(
-          child: ListView.builder(
+      body: ListView.builder(
         shrinkWrap: true,
         itemCount: toTakeList.length,
         itemBuilder: (context, index) {
@@ -60,7 +59,7 @@ class _ToTakeListState extends State<ToTakeList> {
             ],
           );
         },
-      )),
+      ),
     );
   }
 }
